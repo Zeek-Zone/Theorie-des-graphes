@@ -172,5 +172,32 @@ void mesTablesPSetLS(){
 /******************************************************/
 
 void monFileFSetTabAPS(){
+      int n, m, i;
+      printf("Saisire |X|= nombre de sommets:\n");
+      scanf("%d", &n);
+      printf("Saisire |U|= nombre de d'arc:\n");
+      scanf("%d", &m);
+      int *APS = (int*)malloc((n+1)*sizeof(int));
+      int *FS = (int*)malloc(m*sizeof(int));
 
+      printf("Saisir les successeurs de chaque sommet en oredre croissant:\n\
+      	Commencer par cels de premier sommet puis du deuxieme ...\n FS:\n");
+      for ( i = 0; i < m; ++i)
+      {
+      	scanf("%d", &FS[i]);
+      }
+
+      printf("\nAPS:\n");
+      APS[0] = 1;
+      for ( i = 1; i < n; ++i)
+      {
+      	int numSuccess;
+      	printf("Saisir le nombre des successeurs du sommet %d :\n", i);
+      	scanf("%d", &numSuccess);
+      	APS[i] = APS[i-1] + numSuccess;
+      }
+      APS[n] = m+1;
+
+      printf("APS: "); afficherTableau(APS, n+1);
+      printf("\nFS: "); afficherTableau(FS, m);
 }
