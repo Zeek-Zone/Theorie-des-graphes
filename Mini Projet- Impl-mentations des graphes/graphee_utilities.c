@@ -131,7 +131,42 @@ void mesListesDadjacence(){
 }
 /******************************************************/
 
-void mesTablesPSetLS(){
+void afficherTableau(int tab[], int n){
+	int i;
+	for (int i = 0; i < n; ++i)
+	{
+		printf("%d\t", tab[i]);
+	}
+}
+
+void mesTablesPSetLS(){	
+      int n, m, i;
+      printf("Saisire |X|= nombre de sommets:\n");
+      scanf("%d", &n);
+      printf("Saisire |U|= nombre de d'arc:\n");
+      scanf("%d", &m);
+      int *PS = (int*)malloc((n+1)*sizeof(int));
+      int *LS = (int*)malloc(m*sizeof(int));
+
+      printf("Saisir les successeurs de chaque sommet en oredre croissant:\n\
+      	Commencer par cels de premier sommet puis du deuxieme ...\n");
+      for ( i = 0; i < m; ++i)
+      {
+      	scanf("%d", &LS[i]);
+      }
+
+      PS[0] = 1;
+      for ( i = 1; i < n; ++i)
+      {
+      	int numSuccess;
+      	printf("Saisir le nombre des successeurs du sommet %d :\n", i);
+      	scanf("%d", &numSuccess);
+      	PS[i] = PS[i-1] + numSuccess;
+      }
+      PS[n] = m+1;
+
+      printf("PS: "); afficherTableau(PS, n+1);
+      printf("\nLS: "); afficherTableau(LS, m);
 
 }
 /******************************************************/
