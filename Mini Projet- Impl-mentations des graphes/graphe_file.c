@@ -48,7 +48,7 @@ return file;
 /******************************************************************************************/
 void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
 {
-          /* Cette fonction enfile un Ã©lÃ©ment dans le file */
+          /* Cette fonction enfile un élément dans le file */
               if (file == NULL)
               {
                     printf("Erreur Allocation - enfiler\n");
@@ -59,7 +59,7 @@ void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
 
               if (file->tete != NULL) /* La file n'est pas vide */
               {
-                  /* On se positionne Ã  la fin de la file */
+                  /* On se positionne à la fin de la file */
                   Sommet *elementActuel = file->tete;
                   while (elementActuel->suivant != NULL)
                   {
@@ -67,7 +67,7 @@ void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
                   }
                   elementActuel->suivant = nouveau;
               }
-              else /* La file est vide, notre Ã©lÃ©ment est le premier */
+              else /* La file est vide, notre élément est le premier */
               {
                   file->tete = nouveau;
               }
@@ -76,7 +76,7 @@ void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
 /******************************************************************************************/
 int defiler(FileSuccesseur *file)
 {
-          /* Cette fonction defile un Ã©lÃ©ment du file */
+          /* Cette fonction defile un élément du file */
               if (file == NULL)
               {
                    printf("file vide! - defiler\n");
@@ -85,7 +85,7 @@ int defiler(FileSuccesseur *file)
 
               int sommetDefile = 0;
 
-              /* On vÃ©rifie s'il y a quelque chose Ã  dÃ©filer */
+              /* On vérifie s'il y a quelque chose à défiler */
               if (file->tete != NULL)
               {
                   Sommet *elementDefile = file->tete;
@@ -127,4 +127,5 @@ int main(int argc, char const *argv[])
   return 0;
 }
 */
+
 
