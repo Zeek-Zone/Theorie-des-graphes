@@ -2,6 +2,7 @@
 #include<stdio.h>
 #include "graphe_matrice.h"
 #include "graphe_utilities.h"
+#include "graphe_liste.h"
 
 MatriceDAdjacence getMatriceDAdjacence( MesListeDAdjacence *liste){
           /*
@@ -41,7 +42,7 @@ return m;
 
 /**********************************/
 /* Teste:
-*  
+*
 
 int main(int argc, char const *argv[])
 {
@@ -61,22 +62,26 @@ int main(int argc, char const *argv[])
 
 */
 /******************************************************/
+// Cette partie contient les fonctions de choix sur main.c
 void maMatriceDadjacence(){
   int choix;
   debut:
   printf("\n>>>>>>> Saisir un type de graphe\n");
-  scanf("%d", &choix);
   printf("----> 1. Graphe Oriente\n");
   printf("----> 2. Graphe Non Oriente\n");
+  scanf("%d", &choix);
+
   switch(choix){
     case 1:
           printf("\n___________ Graphe Oriente ____________\n");
+          freopen("gOrienteMatAdj.txt", "r", stdin);
           MatriceDAdjacence mgo = creerMatAdjGO();
           afficheMatriceAdjacence(mgo);
           afficheArcs(mgo);
     break;
-    case 2: 
+    case 2:
           printf("\n___________ Graphe Non Oriente ____________\n");
+          freopen("gNonOrienteMatAdj.txt", "r", stdin);
           MatriceDAdjacence mgno = creerMatAdjGNO();
           afficheMatriceAdjacence(mgno);
           afficheArete(mgno);
@@ -84,7 +89,7 @@ void maMatriceDadjacence(){
     default:
            goto debut;
   }
-    
+
 }
 /******************************************************/
 
@@ -92,21 +97,23 @@ void maMatriceDincidence(){
   int choix;
   debut:
   printf("\n>>>>>>> Saisir un type de graphe\n");
-  scanf("%d", &choix);
   printf("----> 1. Graphe Oriente\n");
   printf("----> 2. Graphe Non Oriente\n");
+scanf("%d", &choix);
   switch(choix){
     case 1:
           printf("\n___________ Graphe Oriente ____________\n");
+          freopen("gOrienteMatIncid.txt", "r", stdin);
           MatriceDIncidence mgo = creerMatIncidGO();
           afficheMatriceIncidence(mgo);
-          afficheArcs(mgo);
+          afficheArcMatriceIncidence(mgo);
     break;
-    case 2: 
+    case 2:
           printf("\n___________ Graphe Non Oriente ____________\n");
+          freopen("gNonOrienteMatIncid.txt", "r", stdin);
           MatriceDIncidence mgno = creerMatIncidGNO();
           afficheMatriceIncidence(mgno);
-          afficheArete(mgno);
+          afficheAreteMatriceIncidence(mgno);
     break;
     default:
            goto debut;
@@ -116,31 +123,36 @@ void maMatriceDincidence(){
 
 void mesListesDadjacence(){
   MesListeDAdjacence *li = creerListeDAdjacence();
-  int i, val, n;
-  printf("Saisir le nombre de sommets: \n");
-  scanf("%d", &n);
-  for (i = 0; i < n; ++i)
-  {
-    printf("\nSaisir une Sommet:\n");
-    scanf("%d", &val);
-    insert(li, val);
+  printf("##### Debut #######\n");
+  freopen("grapheListes.txt", "r", stdin);
+  int i, n;
+  printf("**************** Saisir le nombtre de sommets ****************\n");
+  printf("\nNombre Sommet : ");
+  scanf("%d",&n);
+  printf("\n**************** Saisie des sommets ****************\n");
+  for(i = 0; i < n ; i++){
+        int val;
+        printf("\nSaisir Sommet: ");
+        scanf("%d", &val);
+        insert(li, val);
+        printf("\n***********************************************************\n");
   }
-
+  afficherListeAdj(li);
   MatriceDAdjacence m = getMatriceDAdjacence(li);
   afficheMatriceAdjacence(m);
 }
 /******************************************************/
-
 void afficherTableau(int tab[], int n){
 	int i;
-	for (int i = 0; i < n; ++i)
+	for (i = 0; i < n; ++i)
 	{
 		printf("%d\t", tab[i]);
 	}
+	printf("\n");
 }
-
-void mesTablesPSetLS(){	
+void mesTablesPSetLS(){
       int n, m, i;
+      freopen("gPSetLS.txt", "r", stdin);
       printf("Saisire |X|= nombre de sommets:\n");
       scanf("%d", &n);
       printf("Saisire |U|= nombre de d'arc:\n");
@@ -149,7 +161,7 @@ void mesTablesPSetLS(){
       int *LS = (int*)malloc(m*sizeof(int));
 
       printf("Saisir les successeurs de chaque sommet en oredre croissant:\n\
-      	Commencer par cels de premier sommet puis du deuxieme ...\n");
+      	Commencer par cels de premier sommet puis du deuxieme ...\n LS: \n");
       for ( i = 0; i < m; ++i)
       {
       	scanf("%d", &LS[i]);
@@ -165,14 +177,16 @@ void mesTablesPSetLS(){
       }
       PS[n] = m+1;
 
-      printf("PS: "); afficherTableau(PS, n+1);
+      printf("\nPS: "); afficherTableau(PS, n+1);
       printf("\nLS: "); afficherTableau(LS, m);
 
 }
 /******************************************************/
 
+
 void monFileFSetTabAPS(){
       int n, m, i;
+      freopen("gAPSetFS.txt", "r", stdin);
       printf("Saisire |X|= nombre de sommets:\n");
       scanf("%d", &n);
       printf("Saisire |U|= nombre de d'arc:\n");
@@ -180,7 +194,7 @@ void monFileFSetTabAPS(){
       int *APS = (int*)malloc((n+1)*sizeof(int));
       int *FS = (int*)malloc(m*sizeof(int));
 
-      printf("Saisir les successeurs de chaque sommet en oredre croissant:\n\
+      printf("\nSaisir les successeurs de chaque sommet en oredre croissant:\n\
       	Commencer par cels de premier sommet puis du deuxieme ...\n FS:\n");
       for ( i = 0; i < m; ++i)
       {
@@ -198,6 +212,7 @@ void monFileFSetTabAPS(){
       }
       APS[n] = m+1;
 
-      printf("APS: "); afficherTableau(APS, n+1);
+      printf("\nAPS: "); afficherTableau(APS, n+1);
       printf("\nFS: "); afficherTableau(FS, m);
 }
+
