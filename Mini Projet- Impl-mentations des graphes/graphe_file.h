@@ -1,15 +1,15 @@
-#ifndef H_FILE
-#define H_FILE
+#ifndef H_GRAPHEFILE
+#define H_GRAPHEFILE
 /**
-* Fichier header des Ã©lÃ©ment liÃ© aux files de projets
+* Fichier header des élément lié aux files de projets
 * @author Hassan Zekkouri
 * @date 18/11/2018   22:30
-* @project Mini-projet : ImlÃ©mentations des graphes
+* @project Mini-projet : Imlémentations des graphes
 */
 
 /****************************************************************/
 typedef struct arc Arc;
-struct arc {
+struct arc { //Arete
           int extInitial;
           int extTerminal;
 };
@@ -45,4 +45,5 @@ void enfiler(FileSuccesseur *file, int extInitial, int extTerminal);
 int defiler(FileSuccesseur *file);
 void afficherFile(FileSuccesseur *file);
 
-#endif
+#endif //H_GRAPHEFILE
+
