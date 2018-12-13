@@ -6,7 +6,7 @@
 /**
 * Fichier header des utilités liés aux graphes:
 *
-*  @author Hassan Zekkouri
+* @author Hassan Zekkouri
 * @date 30/11/2018   23:30
 */
 
