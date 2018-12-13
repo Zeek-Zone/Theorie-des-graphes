@@ -1,5 +1,5 @@
-#ifndef H_LISTE
-#define H_LISTE
+#ifndef H_GRAPHELISTE
+#define H_GRAPHELISTE
 #include "graphe_file.h"
 
 /**
@@ -44,5 +44,5 @@ MesListeDAdjacence* creerListeDAdjacence(); // la liste de controle
 void afficherListeAdj(MesListeDAdjacence *liste);
 void supprimeListeAdj(MesListeDAdjacence *liste);
 
-#endif // H_LISTE
+#endif // H_GRAPHELISTE
 
