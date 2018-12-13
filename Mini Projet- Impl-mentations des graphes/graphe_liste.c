@@ -1,13 +1,11 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include "graphe_liste.h"
-
-
-
+#include "graphe_file.c"
 
 /** \brief  Cette fonction cree une liste initialement vide
  *
- * \return  liste: une listSommet element de la liste de contrÃ´le des listes d'adjacences
+ * \return  liste: une liste d'adjacence
  *
  */
 Liste* creerListe(){
@@ -27,7 +25,7 @@ return liste;
 /**************************************************************************************************/
 /** \brief  Cette fonction cree une liste initialement vide
  *
- * \return  liste: une liste de contrÃ´le des listes d'adjacences
+ * \return  liste: une liste de contrôle des listes d'adjacences
  *
  */
 MesListeDAdjacence* creerListeDAdjacence(){
@@ -46,21 +44,21 @@ return liste;
 }
 /*******************************************************************************/
 /** \brief Cette fonction permet d'ajouter une liste d'adjacence
- *  \param  liste : un pointeur  sur liste de contrÃ´le
- *  \param  valSommet : Le sommet pour laquelle on veut stocket la liste d'adjacence
+ *  \param  liste : un pointeur  sur la liste de contrôle
+ *  \param  valeur : Le sommet pour laquelle on veut stocker la liste d'adjacence
  *  \return rien
  */
 
 void insert(MesListeDAdjacence *liste, int valeur){
-          /* CrÃ©ation du nouvel Ã©lÃ©ment */
+          /* Création du nouvel élément */
               Liste *nouveau = creerListe(), *courant, *pred;
               nouveau->extInitial = valeur;
               int numSucc;
               printf("\n---> Saisir le nombre des successeur de %d\n", valeur);
               scanf("%d", &numSucc);
               nouveau->file = creerFile(valeur, numSucc);
-              /* Insertion de l'Ã©lÃ©ment dans la liste  en order croissant*/
-              if( liste->taille == 0){
+              /* Insertion de l'élément dans la liste  en order croissant*/
+              if( liste->taille == 0){ //liste vide
                          nouveau->suivant = liste->debut;
                          liste->debut = nouveau;
               }
@@ -79,7 +77,7 @@ void insert(MesListeDAdjacence *liste, int valeur){
 /*******************************************************************************/
 /** \brief Cette fonction permet d'afficher toutes
  * les listes d'adjacences
- * \param liste : un pointeur  sur liste de contrÃ´le
+ * \param liste : un pointeur  sur liste de contrôle
  * \return rien
  */
 
@@ -103,7 +101,7 @@ void afficherListeAdj(MesListeDAdjacence *liste){
 /*******************************************************************************/
 /** \brief Cette fonction permet de supprimer tout
  *  les listes d'adjcences
- * \param  liste : un pointeur  sur liste de contrÃ´le
+ * \param  liste : un pointeur  sur liste de contrôle
  * \return  rien
  */
 
@@ -125,7 +123,7 @@ void supprimeListeAdj(MesListeDAdjacence *liste){
 
 /**********************************/
 /* Teste:
-*  
+*
 
 int main(int argc, char const *argv[])
 {
@@ -141,3 +139,4 @@ int main(int argc, char const *argv[])
   return 0;
 }
 */
+
