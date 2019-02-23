@@ -4,9 +4,9 @@
 #include "graphe_liste.h"
 
 /**
-* Fichier header des utilités liés aux graphes:
+* Fichier header des utilitaires liés aux graphes:
 *
-*  @author Hassan Zekkouri
+* @author Hassan Zekkouri
 * @date 30/11/2018   23:30
 */
 

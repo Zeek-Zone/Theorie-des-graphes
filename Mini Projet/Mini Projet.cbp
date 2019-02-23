@@ -31,10 +31,6 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
-		<Unit filename="file.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="file.h" />
 		<Unit filename="gAPSetFS.txt" />
 		<Unit filename="gNonOrienteMatAdj.txt" />
 		<Unit filename="gNonOrienteMatIncid.txt" />
@@ -54,10 +50,6 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="graphe_matrice.h" />
-		<Unit filename="graphe_parcours.c">
-			<Option compilerVar="CC" />
-		</Unit>
-		<Unit filename="graphe_parcours.h" />
 		<Unit filename="graphe_utilities.c">
 			<Option compilerVar="CC" />
 		</Unit>

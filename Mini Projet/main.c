@@ -2,6 +2,14 @@
 #include <stdlib.h>
 #include "graphe_utilities.h"
 
+void viderBuffer()
+{
+    int c = 0;
+    while (c != '\n' && c != EOF)
+    {
+        c = getchar();
+    }
+}
 
 int main()
 {
@@ -10,7 +18,7 @@ int main()
   La fonction freopen permet de tester avec des fichier sans avoir
   besoin a taper les information à chaque que lon veut tester! */
   int choix = 0;
-  retester:
+  //retester:
   printf("**********************************\n");
   printf("**********************************\n\n");
   printf("Quelle representation aimerez vous faire?\n");
@@ -45,7 +53,8 @@ int main()
 
   /*printf("Aimerez vous faire un autre teste\? taper 1 si oui\n");
   int a;
-
+  //viderBuffer();
+  fflush(stdin);
   scanf("%d", &a);
   if(a == 1) goto retester;*/
 

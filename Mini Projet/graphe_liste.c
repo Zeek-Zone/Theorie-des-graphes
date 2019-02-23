@@ -58,7 +58,7 @@ void insert(MesListeDAdjacence *liste, int valeur){
               int numSucc;
               printf("\n---> Saisir le nombre des successeur de %d\n", valeur);
               scanf("%d", &numSucc);
-              nouveau->file = creerFile(valeur, numSucc);
+              nouveau->file = saisirFile(valeur, numSucc);
               /* Insertion de l'élément dans la liste  en order croissant*/
               if( liste->taille == 0){ //liste vide
                          nouveau->suivant = liste->debut;

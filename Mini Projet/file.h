@@ -1,11 +1,16 @@
 #ifndef H_FIFO
 #define H_FIFO
 
+/**
+Fichier header de la structure de données File
+*/
+
 typedef struct cellule* pCellule;
 typedef struct cellule Cellule;
 
+// La structure cellule represente l'element de la file == Sommet
 struct cellule{
-    int element;// sommet
+    int element;
     pCellule suivant;
 };
 
@@ -20,7 +25,5 @@ struct file{
 typedef  File* pFile;
 
 void enfile(pFile f, int element);
-void defile(pFile f);
-int defilement(pFile f);
 
 #endif // H_FIFO

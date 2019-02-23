@@ -5,11 +5,15 @@
 #include "graphe_liste.h"
 #include "graphe_parcours.h"
 
+
+/******************************** getMatriceDAdjacence( MesListeDAdjacence *liste) ***************************************/
+
 MatriceDAdjacence getMatriceDAdjacence( MesListeDAdjacence *liste){
           /*
-          Cette fonction parcours les listes d'adjacences et
-          retourne la matrice d'adjacence associée
+             Cette fonction parcours les listes d'adjacences et
+             retourne la matrice d'adjacence associée
           */
+
           MatriceDAdjacence m;
           m.n = liste->taille;
           int i,j;
@@ -21,21 +25,21 @@ MatriceDAdjacence getMatriceDAdjacence( MesListeDAdjacence *liste){
                     }
           }
 
-          // Marquer  les arcs entre sommet avec 1
+          // Marquer  les arcs entre sommets avec 1 sur la matrice
               Liste *listeActuel = liste->debut;
               while (listeActuel != NULL)
               {
-                            if (listeActuel->file != NULL)
+                            if (listeActuel->file != NULL) // les successeurs existent
                              {
-                                     Sommet* courant = listeActuel->file->tete;
-                                     while (courant != NULL)
+                                     Sommet* sommetCourant = listeActuel->file->tete;
+                                     while (sommetCourant != NULL)
                                      {
                                                   int i, j;
                                                   i = listeActuel->extInitial - 1;
-                                                  j = courant->valeur - 1;//extremite terminale
+                                                  j = sommetCourant->valeur - 1; //extremite terminale
 
                                                   m.matrice[i][j] = 1;
-                                                  courant = courant->suivant;
+                                                  sommetCourant = sommetCourant->suivant;
                                      }
                              }
                   listeActuel = listeActuel->suivant;
@@ -65,14 +69,21 @@ int main(int argc, char const *argv[])
 }
 
 */
+
+
+
 /******************************************************/
 
-// Cette partie contient les fonctions de choix sur main.c
+// Cette partie contient les fonctions de choix de la fonction main.c
+
+/*********************** maMatriceDadjacence() *******************************/
 
 void maMatriceDadjacence(){
     /* Pour tester les fonctionalité liées aux matrices d'adjacences */
   int choix;
-  debut:
+
+  debut: // etiquete goto en default
+
   printf("\n>>>>>>> Saisir un type de graphe\n");
   printf("----> 1. Graphe Oriente\n");
   printf("----> 2. Graphe Non Oriente\n");
@@ -80,55 +91,68 @@ void maMatriceDadjacence(){
 
   switch(choix){
     case 1:
+
           printf("\n___________ Graphe Oriente ____________\n");
-          freopen("gOrienteMatAdj.txt", "r", stdin); // fichier test
+          freopen("gOrienteMatAdj.txt", "r", stdin); // fichier de test
+
           MatriceDAdjacence mgo = creerMatAdjGO();
           afficheMatriceAdjacence(mgo);
           afficheArcs(mgo);
-          parcoursLargeur(mgo, 1);
+
     break;
     case 2:
+
           printf("\n___________ Graphe Non Oriente ____________\n");
           freopen("gNonOrienteMatAdj.txt", "r", stdin);
+
           MatriceDAdjacence mgno = creerMatAdjGNO();
           afficheMatriceAdjacence(mgno);
           afficheArete(mgno);
     break;
     default:
-           goto debut;
+           goto debut; // refaire le choix!
   }
 
 }
-/******************************************************/
+
+/*********************** maMatriceDincidence() *******************************/
 
 void maMatriceDincidence(){
     /* Pour tester les fonctionalité liées aux matrices d'incidences */
   int choix;
+
   debut:
+
   printf("\n>>>>>>> Saisir un type de graphe\n");
   printf("----> 1. Graphe Oriente\n");
   printf("----> 2. Graphe Non Oriente\n");
   scanf("%d", &choix);
   switch(choix){
     case 1:
+
           printf("\n___________ Graphe Oriente ____________\n");
           freopen("gOrienteMatIncid.txt", "r", stdin);
+
           MatriceDIncidence mgo = creerMatIncidGO();
           afficheMatriceIncidence(mgo);
           afficheArcMatriceIncidence(mgo);
+
     break;
     case 2:
+
           printf("\n___________ Graphe Non Oriente ____________\n");
           freopen("gNonOrienteMatIncid.txt", "r", stdin);
+
           MatriceDIncidence mgno = creerMatIncidGNO();
           afficheMatriceIncidence(mgno);
           afficheAreteMatriceIncidence(mgno);
+
     break;
     default:
            goto debut;
   }
 }
-/******************************************************/
+/************************* mesListesDadjacence() *****************************/
 
 void mesListesDadjacence(){
     /* Pour tester les fonctionalité liées aux listes d'adjacences */
@@ -155,7 +179,10 @@ void mesListesDadjacence(){
   MatriceDAdjacence m = getMatriceDAdjacence(li);
   afficheMatriceAdjacence(m);
 }
-/******************************************************/
+
+
+/*********************** mesTablesPSetLS() *******************************/
+
 void afficherTableau(int tab[], int n){
     /* Affichage d'un tableau tab de taille n */
 	int i;
@@ -167,16 +194,18 @@ void afficherTableau(int tab[], int n){
 }
 
 void mesTablesPSetLS(){
+        /* Cette fonction represente le graphe avec les deux tableaux PS et LS */
+
       int n, m, i;
       freopen("gPSetLS.txt", "r", stdin);
       printf("Saisire |X|= nombre de sommets:\n");
       scanf("%d", &n);
       printf("Saisire |U|= nombre de d'arc:\n");
       scanf("%d", &m);
-      int *PS = (int*)malloc((n+1)*sizeof(int));
-      int *LS = (int*)malloc(m*sizeof(int));
+      int *PS = (int*)malloc((n+1)*sizeof(int)); // Premier Successeur
+      int *LS = (int*)malloc(m*sizeof(int)); // Listes des Successeurs
 
-      printf("Saisir les successeurs de chaque sommet en oredre croissant:\n\
+      printf("Saisir les successeurs de chaque sommet en ordre croissant:\n\
       	Commencer par cels de premier sommet puis du deuxieme ...\n LS: \n");
 
       for ( i = 0; i < m; ++i)
@@ -191,6 +220,9 @@ void mesTablesPSetLS(){
       	printf("Saisir le nombre des successeurs du sommet %d :\n", i);
       	scanf("%d", &numSuccess);
       	PS[i] = PS[i-1] + numSuccess;
+      	/* ici si le sommet i n'a pas de successeurs alors PS[i+1] = PS[i] cette propriété est automatiquement
+      	gérer car l'ajout de zero ne change pas la valeur ;  PS[i+1] = PS[i] + 0
+      	*/
       }
       PS[n] = m+1;
 
@@ -199,18 +231,19 @@ void mesTablesPSetLS(){
 
 }
 
-/******************************************************/
+/************************ monFileFSetTabAPS() ******************************/
 
 
 void monFileFSetTabAPS(){
+    /* Cette fonction represente le graphe avec les deux tableaux FS et APS */
       int n, m, i;
       freopen("gAPSetFS.txt", "r", stdin);
       printf("Saisire |X|= nombre de sommets:\n");
       scanf("%d", &n);
       printf("Saisire |U|= nombre de d'arc:\n");
       scanf("%d", &m);
-      int *APS = (int*)malloc((n+1)*sizeof(int));
-      int *FS = (int*)malloc(m*sizeof(int));
+      int *APS = (int*)malloc((n+1)*sizeof(int)); // Adresse de Premier Successeur
+      int *FS = (int*)malloc(m*sizeof(int)); // File des successeurs
 
       printf("\nSaisir les successeurs de chaque sommet en oredre croissant:\n\
       	Commencer par cels de premier sommet puis du deuxieme ...\n FS:\n");
@@ -228,6 +261,7 @@ void monFileFSetTabAPS(){
       	scanf("%d", &numSuccess);
       	APS[i] = APS[i-1] + numSuccess;
       }
+
       APS[n] = m+1;
 
       printf("\nAPS: "); afficherTableau(APS, n+1);

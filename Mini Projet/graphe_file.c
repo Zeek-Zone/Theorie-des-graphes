@@ -2,6 +2,9 @@
 #include <stdlib.h>
 #include "graphe_file.h"
 
+
+/********************************* initialiserFile() *********************************************************/
+
 Arc* creerArc(int initial, int terminal){
   Arc *arc = (Arc*)malloc(sizeof(Arc));
   arc->extInitial = initial;
@@ -9,27 +12,31 @@ Arc* creerArc(int initial, int terminal){
 return arc;
 }
 
+/********************************* initialiserFile() *********************************************************/
+
 Sommet* creerSommet(int extInitial, int extTerminal){
-          /* Cette fonction cree un sommet de file */
+          /* Cette fonction cree un sommet element de la file */
           Sommet *som = (Sommet*)malloc(sizeof(Sommet));
           som->valeur = extTerminal;
           som->arc = creerArc(extInitial, extTerminal);
           som->suivant = NULL;
 return som;
 }
-/******************************************************************************************/
-FileSuccesseur *initialiserFile()
+/********************************* creerFile() *********************************************************/
+FileSuccesseur* creerFile()
 {
-          /* Cette fonction cree un file initialement vide */
+          /* Cette fonction cree une file initialement vide */
               FileSuccesseur *file = (FileSuccesseur*)malloc(sizeof(FileSuccesseur));
               file->taille = 0;
               file->tete = NULL;
 return file;
 }
-/******************************************************************************************/
-FileSuccesseur* creerFile(int extInitial, int numSucc){
-          /* Cette fonction saisie le file */
-          FileSuccesseur* file = initialiserFile();
+/*********************************** creerFile(int extInitial, int numSucc) *******************************************************/
+
+FileSuccesseur* saisirFile(int extInitial, int numSucc){
+          /* Cette fonction saisie la file */
+
+          FileSuccesseur* file = creerFile();
           if (file == NULL)
               {
                   printf("Erreur Allocation - creerFile\n");
@@ -45,10 +52,10 @@ FileSuccesseur* creerFile(int extInitial, int numSucc){
           }
 return file;
 }
-/******************************************************************************************/
+/******************************** enfiler(FileSuccesseur *file, int extInitial,int extTerminal) **********************************************************/
 void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
 {
-          /* Cette fonction enfile un élément dans le file */
+          /* Cette fonction enfile un élément dans la file */
               if (file == NULL)
               {
                     printf("Erreur Allocation - enfiler\n");
@@ -73,10 +80,10 @@ void enfiler(FileSuccesseur *file, int extInitial,int extTerminal)
               }
 }
 
-/******************************************************************************************/
+/************************************ defiler(FileSuccesseur *file) ******************************************************/
 int defiler(FileSuccesseur *file)
 {
-          /* Cette fonction defile un élément du file */
+          /* Cette fonction defile un élément de la file */
               if (file == NULL)
               {
                    printf("file vide! - defiler\n");
@@ -96,10 +103,10 @@ int defiler(FileSuccesseur *file)
               }
 return sommetDefile;
 }
-/******************************************************************************************/
+/******************************* afficherFile(FileSuccesseur *file) ***********************************************************/
 void afficherFile(FileSuccesseur *file)
 {
-          /* Cette fonction permet d'afficher le file */
+          /* Cette fonction permet d'afficher la file */
               if (file == NULL)
               {
                   printf("Erreur -afficherFile");

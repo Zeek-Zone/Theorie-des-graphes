@@ -39,8 +39,8 @@ struct fileSuccesseur{
 // les fonctions de manipulation
 Arc* creerArc(int initial, int terminal);
 Sommet* creerSommet(int extInitial, int extTerminal);
-FileSuccesseur* creerFile(int extInitial, int numSucc);
-FileSuccesseur *initialiserFile();
+FileSuccesseur* saisirFile(int extInitial, int numSucc);
+FileSuccesseur *creerFile();
 void enfiler(FileSuccesseur *file, int extInitial, int extTerminal);
 int defiler(FileSuccesseur *file);
 void afficherFile(FileSuccesseur *file);
