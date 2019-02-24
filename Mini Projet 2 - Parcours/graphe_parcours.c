@@ -4,11 +4,15 @@
 #include "graphe_parcours.h"
 #include "file.h"
 
-#define NIVEAU 10
+#define NIVEAU 10 // niveau maximal, à adaper selon le besoin
 int numSuccessurs;
 int temps;
 
+/***************************** construireListeSuccesseur(MatriceDAdjacence graphe, int x) ***********************************/
+
 int* construireListeSuccesseur(MatriceDAdjacence graphe, int x){
+    /* cette fonction retourne la liste des successeurs
+    d'un sommet  x */
 
     int  i ,j = 0;
     numSuccessurs = 0;
@@ -18,6 +22,7 @@ int* construireListeSuccesseur(MatriceDAdjacence graphe, int x){
            }
 
     int *LS = (int*)malloc(numSuccessurs * sizeof(int));
+    // remplissage de LS
     for(i = 0; i < graphe.n; i++)
         if(graphe.matrice[x][i] == 1){
                 LS[j] = i;
@@ -26,26 +31,32 @@ int* construireListeSuccesseur(MatriceDAdjacence graphe, int x){
 return LS;
 }
 
+/************************** parcoursLargeur(MatriceDAdjacence graphe, int racine)**************************************/
+
 void parcoursLargeur(MatriceDAdjacence graphe, int racine){
-    int tete, queue, *marque, i;
+
+    int tete, queue, i;
     pFile file = creerFile();
-    marque = (int*)malloc(graphe.n * sizeof(int));
+    int *marque = (int*)malloc(graphe.n * sizeof(int));
+
+    /// au debut tout les sommets sont non marqué
     for(i = 0; i < graphe.n ; i++) marque[i] = 0;
+
     tete  = 0;
     queue = 0;
+
     enfile(file, racine-1);
     printf("\n%d ", racine);
-    marque[racine-1] = 1;
+    marque[racine-1] = 1; // marqué la racine
 
     while(tete <= queue){
         int x = defilement(file);
         int *LS = construireListeSuccesseur(graphe, x);
-        //int taille = sizeof(LS)/sizeof(LS[0]);
         int j;
         for(j = 0; j < numSuccessurs; j++){
             int y = LS[j];
             if(marque[y] == 0){
-                marque[y] = marque[x] + 1;
+                marque[y] = marque[x] + 1;  // marqué y
                 queue++;
                 enfile(file, y);
                 printf("%d ", y+1);
@@ -53,14 +64,23 @@ void parcoursLargeur(MatriceDAdjacence graphe, int racine){
         }
         tete++;
     }
-    printf("\nFin de parcours BFS! \n");
+    printf("\nFin de parcoursLargeur (BFS)! \n");
 }
 
+/************************** BFS(MatriceDAdjacence graphe, int r) **************************************/
+
 Marque* BFS(MatriceDAdjacence graphe, int r){
-    /* cette fonction retourne le resultat de parcours en Largeur */
+
+    /* cette fonction retourne le resultat de parcours en Largeur
+    qui sera exploiter en construction des couches et tester si
+    un graphe est biparti!
+    */
+
     Marque *marque = (Marque*)malloc(graphe.n * sizeof(Marque));
     pFile file = creerFile();
     int i;
+
+    /// au debut tout les sommets sont non marqués
     for(i = 0; i < graphe.n ; i++){
         marque[i].couleur = 'b'; //blanc
         marque[i].pere = -1;
@@ -76,7 +96,6 @@ Marque* BFS(MatriceDAdjacence graphe, int r){
     while(file->taille > 0){
         int x = defilement(file), y;
         int *LS = construireListeSuccesseur(graphe, x);
-        //int taille = sizeof(LS)/sizeof(LS[0]);
         int j;
         for(j = 0; j < numSuccessurs; j++){
             y = LS[j];
@@ -90,59 +109,85 @@ Marque* BFS(MatriceDAdjacence graphe, int r){
         }
         marque[x].couleur = 'n'; // exploré
     }
-    //printf("\nFin de parcours! \n");
+    //printf("\nFin de parcoursBFS 2! \n");
 return marque;
 }
 
+/************************** partitionerEnCouche(Marque *marque, int n) **************************************/
+
 pFile* partitionerEnCouche(Marque *marque, int n){
+     // marque: contient le resultat de parcours en largeur
+    // couches: tableau contenant les file de sommets de chaque niveau
+
     pFile *couches = (pFile*)malloc(NIVEAU * sizeof(pFile));
     int i;
-    for(i = 0; i < NIVEAU; i++) couches[i] = creerFile();
+    // initialisation
+    for(i = 0; i < NIVEAU; i++)
+        couches[i] = creerFile();
 
     for(i = 0 ; i < n; i ++){
         int niveau = marque[i].dist;
-        //printf("-N%d %d \n",niveau, i);
+        //printf("Niveau %d Sommet %d\n",niveau, i);
         if(niveau <= NIVEAU)
           enfile(couches[niveau], i+1);
     }
+
 return couches;
 }
 
+/************************** afficherCouches(MatriceDAdjacence graphe) **************************************/
+
 void afficherCouches(MatriceDAdjacence graphe){
+
     Marque *marque = BFS(graphe, 1);
     pFile* couches = partitionerEnCouche(marque, graphe.n);
     int i;
     for(i = 0; i < NIVEAU; i++){
-        if(couches[i]->taille){
+        if(couches[i]->taille){ // // couche (file) non vide
             printf("C(%d) : ", i);
             afficheFile(couches[i]);
             printf("\n");
         }
     }
+
 }
 
-int grapheBipartiBFS(MatriceDAdjacence graphe){
-    Marque *marque = BFS(graphe, 5);
+/**************************** grapheBipartiBFS(MatriceDAdjacence graphe) ************************************/
 
+int grapheBipartiBFS(MatriceDAdjacence graphe, int racine){
+
+    Marque *marque = BFS(graphe, racine);
     pFile* couches = partitionerEnCouche(marque, graphe.n);
 
     /* S'il existe un arc entre deux éléments de même couches
     on return 0 (non biparti) */
+
     int i = 0;
+    // on vérifier s'il existe des liens entre les sommets d'une couche
     for(i = 0; i < NIVEAU ; i++){
-        if(couches[i]->taille > 1){
+
+        if(couches[i]->taille > 1){ // couche (file) non vide
+
             pCellule x, y;
             x = couches[i]->tete;
             y = NULL;
+
             while(x->suivant != NULL){
-                y = x->suivant; //printf("-N%d %d ", i,y->element);
-                if( graphe.matrice[x->element -1][y->element -1] == 1 || graphe.matrice[y->element -1][x->element -1] == 1)
+
+                y = x->suivant;
+                int a = x->element; // sommet 1
+                int b = y->element; // sommet 2
+                // on test avec le sommet suivant
+                if( graphe.matrice[a-1][b-1] == 1 || graphe.matrice[b-1][a-1] == 1)
                     return 0;
+                // on test avec les sommet apres le sommet suivant
                 while(y->suivant != NULL){
-                    y = y->suivant; //printf("-N%d %d ", i, y->element);
-                    if( graphe.matrice[x->element -1][y->element -1] == 1 || graphe.matrice[y->element -1][x->element -1] == 1)
+                    y = y->suivant;
+                    b = y->element; // sommet 2
+                    if( graphe.matrice[a-1][b-1] == 1 || graphe.matrice[b-1][a-1] == 1)
                         return 0;
                 }
+
                 x = x->suivant;
             }
             printf("\n ");
@@ -152,32 +197,42 @@ return 1; // graphe biparti
 }
 
 
+/****************************** parcoursProfondeur(MatriceDAdjacence graphe, int racine) **********************************/
+
 void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
-    /* cette fonction retourne le resultat de parcours en profondeur */
-    int *marque, i;
+
+    /* cette fonction affiche le resultat de parcours en profondeur */
+
+    int i;
     pFile pile = creerFile();
-    marque = (int*)malloc(graphe.n * sizeof(int));
-    for(i = 0; i < graphe.n ; i++) marque[i] = 0;//Faux
+    int *marque = (int*)malloc(graphe.n * sizeof(int));
+
+    for(i = 0; i < graphe.n ; i++)
+        marque[i] = 0; //Faux: non marqué
+
     empiler(pile, racine-1);
     printf("\n%d ", racine);
-    marque[racine-1] = 1;// Vrai
+    marque[racine-1] = 1;// Vrai: marqué
 
-    while(pile->taille){
+    while(pile->taille){ // pile non vide
         int x = depiler(pile);
         int *LS = construireListeSuccesseur(graphe, x);
         int j;
             for(j = 0; j < numSuccessurs; j++){
                 int y = LS[j];
                 if(marque[y] == 0){
-                    marque[y] = 1; // Vrai
+                    marque[y] = 1; // Vrai: marqué
                     empiler(pile, y);
                     printf("%d ", y+1);
                 }
             }
 
     }
-    printf("\nFin de parcours DFS! \n");
+
+    printf("\nFin de parcours en profondeur (DFS)! \n");
 }
+
+/*************************** DFS(MatriceDAdjacence graphe) *************************************/
 
 
 void DFS(MatriceDAdjacence graphe){
@@ -198,6 +253,8 @@ void DFS(MatriceDAdjacence graphe){
     }
 }
 
+/***************************** DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u) ***********************************/
+
 void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
     int v, j;
     int *LS = construireListeSuccesseur(graphe, u);
@@ -211,5 +268,6 @@ void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
                 printf("S%d ", v+1);
             }
         }
+
         tabSommet[u].fin = temps++;
 }

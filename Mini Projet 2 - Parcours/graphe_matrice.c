@@ -2,10 +2,16 @@
 #include<stdlib.h>
 #include "graphe_matrice.h"
 
+/***
+
+C'est le même fichier de projet 1
+
+*/
 
 MatriceDAdjacence creerMatAdjGO(){
           /* Cette fonction saisie et initialise la matrice d'adjacence
             d'un graphe orienté */
+
           MatriceDAdjacence m;
           printf("Saisir le nombre de sommets de votre graphe: |X| = ");
           scanf("%d", &m.n);

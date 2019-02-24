@@ -1,11 +1,15 @@
 #ifndef H_FIFO
 #define H_FIFO
 
+/**
+Fichier header de la structure file et pile: même structure de données
+*/
+
 typedef struct cellule* pCellule;
 typedef struct cellule Cellule;
 
 struct cellule{
-    int element;// sommet
+    int element;
     pCellule suivant;
 };
 
@@ -19,12 +23,14 @@ struct file{
 
 typedef  File* pFile;
 
+// fonctions de la file
 pFile creerFile();
 void enfile(pFile f, int element);
 void defile(pFile f);
 int defilement(pFile f);
 void afficheFile(pFile f);
 
+// fonctions de la pile
 void empiler(pFile f, int element);
 int depiler(pFile f);
 

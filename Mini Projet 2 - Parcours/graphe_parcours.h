@@ -3,6 +3,13 @@
 #include "graphe_matrice.h"
 #include "file.h"
 
+/**
+*   fichier header contenant les declarations de toutes les structures
+*   et fonctions des graphes nécessaire pour les différents parcours.
+*   @author Hassan Zekkouri
+*   le 02/02/2019
+*/
+
 typedef struct marque Marque;
 struct marque{
     char couleur;
@@ -21,7 +28,7 @@ struct sommet{
 void parcoursLargeur(MatriceDAdjacence graphe, int r); // BFS
 Marque* BFS(MatriceDAdjacence graphe, int r);
 void parcoursProfondeur(MatriceDAdjacence, int); // DFS
-int grapheBipartiBFS(MatriceDAdjacence);
+int grapheBipartiBFS(MatriceDAdjacence, int);
 int grapheBipartiDFS(MatriceDAdjacence);
 pFile* partitionerEnCouche(Marque *marque, int n);
 void DFS(MatriceDAdjacence graphe);
