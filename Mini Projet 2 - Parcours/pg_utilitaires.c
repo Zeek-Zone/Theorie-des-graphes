@@ -5,6 +5,7 @@
 #include "pg_utilitaires.h"
 
 #define DEBUT printf("\n################### DEBUT ###################\n")
+
 void menu1(){
     printf("\n>>>>>>> Saisir un type de graphe\n");
     printf("----> 1. Graphe Oriente\n");
@@ -70,11 +71,12 @@ void mesDFS(){
               printf("\n Test de parcoursProfondeur(mgo, i);\n");
               for(i = 1; i <= mgo.n ; i++){
                 printf("\n Parcours Pour La racine : %d", i);
+                printf("\n Test de parcoursProfondeur(mgo, i);n");
                 parcoursProfondeur(mgo, i);
+                printf("\n Test de DFS(mgno);\n");
+                DFS(mgo, i);
               }
 
-              printf("\n Test de DFS(mgno);\n");
-              DFS(mgo);
         break;
 
         case 2:
@@ -86,11 +88,12 @@ void mesDFS(){
               printf("\n Test de parcoursProfondeur(mgno, i);\n");
               for(i = 1; i <= mgno.n ; i++){
                 printf("\n Parcours Pour La racine : %d", i);
+                printf("\n parcoursProfondeur(mgno, i);\n");
                 parcoursProfondeur(mgno, i);
+                ///printf("\n Test de DFS(mgno);\n");
+                ///DFS(mgno, i);
               }
 
-              printf("\n Test de DFS(mgno);\n");
-              DFS(mgno);
         break;
 
         default:

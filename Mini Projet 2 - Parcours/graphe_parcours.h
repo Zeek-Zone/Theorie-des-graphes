@@ -31,6 +31,7 @@ void parcoursProfondeur(MatriceDAdjacence, int); // DFS
 int grapheBipartiBFS(MatriceDAdjacence, int);
 int grapheBipartiDFS(MatriceDAdjacence);
 pFile* partitionerEnCouche(Marque *marque, int n);
-void DFS(MatriceDAdjacence graphe);
+void afficherCouches(MatriceDAdjacence graphe);
+void DFS(MatriceDAdjacence graphe, int);
 
 #endif // H_GRAPHEPARCOURS

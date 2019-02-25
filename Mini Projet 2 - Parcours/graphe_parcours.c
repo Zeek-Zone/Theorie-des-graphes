@@ -139,7 +139,7 @@ return couches;
 
 void afficherCouches(MatriceDAdjacence graphe){
 
-    Marque *marque = BFS(graphe, 1);
+    Marque *marque = BFS(graphe, 7);
     pFile* couches = partitionerEnCouche(marque, graphe.n);
     int i;
     for(i = 0; i < NIVEAU; i++){
@@ -204,18 +204,19 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
     /* cette fonction affiche le resultat de parcours en profondeur */
 
     int i;
-    pFile pile = creerFile();
+    pFile pile = creerFile(); // ici c'est un pile : ajout et suppression en tete
     int *marque = (int*)malloc(graphe.n * sizeof(int));
 
     for(i = 0; i < graphe.n ; i++)
         marque[i] = 0; //Faux: non marqué
 
     empiler(pile, racine-1);
-    printf("\n%d ", racine);
+    //printf("\n%d ", racine);
     marque[racine-1] = 1;// Vrai: marqué
 
     while(pile->taille){ // pile non vide
         int x = depiler(pile);
+        printf("%d ", x+1);
         int *LS = construireListeSuccesseur(graphe, x);
         int j;
             for(j = 0; j < numSuccessurs; j++){
@@ -223,7 +224,6 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
                 if(marque[y] == 0){
                     marque[y] = 1; // Vrai: marqué
                     empiler(pile, y);
-                    printf("%d ", y+1);
                 }
             }
 
@@ -235,10 +235,10 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
 /*************************** DFS(MatriceDAdjacence graphe) *************************************/
 
 
-void DFS(MatriceDAdjacence graphe){
+void DFS(MatriceDAdjacence graphe, int racine){
     Sommet *tabSommet = (Sommet*)malloc((graphe.n) * sizeof(Sommet));
     int i;
-    for(i = 0; i < graphe.n; i++){
+    for(i = 0 ; i < graphe.n; i++){
         tabSommet[i].couleur = 'B';
         tabSommet[i].pere = -1;
     }
@@ -251,6 +251,7 @@ void DFS(MatriceDAdjacence graphe){
             DFS_Visite(graphe, tabSommet, i);
         }
     }
+    free(tabSommet);
 }
 
 /***************************** DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u) ***********************************/
@@ -264,10 +265,11 @@ void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
                 tabSommet[v].couleur = 'G'; // visité
                 tabSommet[v].pere = u;
                 tabSommet[v].decouverte = temps++;
-                DFS_Visite(graphe, tabSommet, v);
                 printf("S%d ", v+1);
+                DFS_Visite(graphe, tabSommet, v);
             }
         }
 
         tabSommet[u].fin = temps++;
+        free(LS);
 }
