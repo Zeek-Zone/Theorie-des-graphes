@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "utilitaires.h"
+#include "graphe_matrice.h"
 
 
 // Driver program to test above functions
@@ -45,6 +46,25 @@ int main()
 	graphe->arcs[4].poids = 4;
 
 	Kruskal(graphe);
+
+	printf("\n");
+
+	/* Let us create the following graph
+        2   3
+    (0)--(1)--(2)
+    |    / \    |
+   6|  8/   \5  |7
+    |  /     \  |
+    (3)-------(4)
+          9         */
+
+    freopen("matriceDadjacence.txt", "r", stdin);
+    MatriceDAdjacence graphe1 = creerMatAdjGO();
+
+    Prim(graphe1, 1);
+
+    // Print the solution
+    //primMST(graph);
 
 	return 0;
 }

@@ -1,4 +1,5 @@
 
+#include "graphe_matrice.h"
 // une structure representant l'arc
 typedef struct arc{   // arete
 	int src,
@@ -15,6 +16,12 @@ typedef struct graphe{
 
 }Graphe;
 
+
+void Prim(MatriceDAdjacence graphe, int racine);
+
+Arc* supprimerDebut(Arc *arcSortant);
+
+void trouverArcSortant(MatriceDAdjacence m, Arc *arcSortant, int *M, int DSM);
 
 Graphe* creerGraphe(int numSommet, int numLien);
 

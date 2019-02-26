@@ -31,7 +31,15 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="graphe_matrice.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graphe_matrice.h" />
 		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="matriceDadjacence.txt" />
+		<Unit filename="utilitaires.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="utilitaires.h" />

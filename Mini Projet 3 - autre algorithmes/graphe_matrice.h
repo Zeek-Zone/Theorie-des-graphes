@@ -18,28 +18,11 @@ struct matAdj{
 };
 typedef  struct matAdj MatriceDAdjacence;
 
-struct matIncid{
-          int numSommet; // nombre ligne
-          int numLiaison; // nombre colonne
-          int matrice[MAX][MAX];
-};
-
-typedef  struct matIncid MatriceDIncidence;
-
-
 MatriceDAdjacence creerMatAdjGO();
 MatriceDAdjacence creerMatAdjGNO();
 void afficheArcs(MatriceDAdjacence m);
 void afficheAretes(MatriceDAdjacence m);
 void afficheMatriceAdjacence(MatriceDAdjacence m);
-
-MatriceDIncidence creerMatIncidGNO();
-void afficheMatriceIncidence(MatriceDIncidence  m);
-void afficheAreteMatriceIncidence(MatriceDIncidence m);
-MatriceDIncidence creerMatIncidGO();
-void afficheMatriceIncidence(MatriceDIncidence m);
-void afficheArcMatriceIncidence(MatriceDIncidence m);
-
 
 #endif // H_GRAPHEM
 

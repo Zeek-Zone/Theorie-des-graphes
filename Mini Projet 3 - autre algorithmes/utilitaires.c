@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include "utilitaires.h"
+#include "graphe_matrice.h"
 
 
 Graphe* creerGraphe(int numSommet, int numLien){
@@ -90,3 +91,95 @@ void Kruskal(Graphe* graphe)
 		printf("%d --(%d)-- %d\n", resultat[i].src, resultat[i].poids, resultat[i].dest);
 return;
 }
+
+
+
+// nombre d'arc sortant
+int numArcSortant = 0;
+void trouverArcSortant(MatriceDAdjacence m, Arc *arcSortant, int *M, int DSM){
+
+          int j;
+          for(j = 0; j < m.n; j++){
+                      if( m.matrice[DSM][j] )
+                                {
+                                    // si le sommet j n'appartient pas au sous
+                                    // graphe ajouter l'arc
+                                    if(M[j] == 0){
+                                        (numArcSortant)++;
+                                        arcSortant = (Arc*)realloc(arcSortant, (numArcSortant) * sizeof(Arc));
+                                        arcSortant[numArcSortant-1].src = DSM+1;
+                                        arcSortant[numArcSortant-1].dest = j+1;
+                                        arcSortant[numArcSortant-1].poids = m.matrice[DSM][j];
+                                    }
+                                }
+            }
+}
+
+
+Arc* supprimerDebut(Arc *arcSortant){
+    int taille = numArcSortant;
+    Arc *temp = (Arc*)malloc( (taille-1) * sizeof(Arc));
+    int i, j = 0;
+    for(i = 1; i < taille; i++, j++)
+        temp[j] = arcSortant[i];
+    numArcSortant--;
+    free(arcSortant);
+return temp;
+}
+
+void Prim(MatriceDAdjacence graphe, int racine){
+    int ordre = graphe.n;
+    Arc resultat[ordre-1];
+    int rSize = 0;
+    // M: les sommets marqués
+    int *M = (int*)malloc(ordre * sizeof(int));
+    // tableau des arcs (aretes) sortants
+    Arc *arcSortant = (Arc*)malloc(sizeof(Arc));
+    // initialisé M et marqueArc à zero (non marqué)
+    memset(M, 0, ordre * sizeof(int));
+    // Dernier sommet marque
+    int DSM = racine - 1;
+    // Marquer la racine
+    M[racine-1] = 1;
+    trouverArcSortant(graphe, arcSortant, M, DSM);
+
+    while(numArcSortant != 0 && rSize < ordre-1){
+        //  Trier les arcs en ordre croissant de poids
+        qsort(arcSortant, sizeof(arcSortant), sizeof(Arc), comparer);
+
+        int x = arcSortant[0].src;
+        int y = arcSortant[0].dest;
+        // marqué le sommet y
+        M[y-1] = M[x-1] + 1;
+        resultat[rSize++] = arcSortant[0];
+        // on supprime l'arc ajouter
+        arcSortant = supprimerDebut(arcSortant);
+        DSM = y-1;
+        trouverArcSortant(graphe, arcSortant, M, DSM);
+
+    }
+
+    // Affichage de resultat
+	printf("\nVoici les arcs (aretes) de l\'arbre de poids minimal: \n");
+	int i;
+	for (i = 0; i < rSize; ++i)
+		printf("%d --(%d)-- %d\n", resultat[i].src, resultat[i].poids, resultat[i].dest);
+}
+
+
+
+
+
+
+/** \brief
+ *
+ * \param
+ * \param
+ * \return
+ * Chercher le nombre de liaison total de dans le graphe
+    Arc *arcs = trouverArcs(graphe);
+    int numLien = sizeof(arcs);
+    memset(marqueArc, 0, numLien * sizeof(int));
+// les arcs marqués
+    int *marqueArc = (int*)malloc(numLien * sizeof(int));
+ */
