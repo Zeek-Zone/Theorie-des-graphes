@@ -1,0 +1,34 @@
+# depslib dependency file v1.0
+1551128776 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+	"utilitaires.h"
+
+1551127035 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.h
+
+1551141919 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\utilitaires.h
+	"graphe_matrice.h"
+
+1551481414 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+
+1551484523 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\coloriage.c
+	<stdlib.h>
+	<stdio.h>
+	"coloriage.h"
+	"graphe_matrice.h"
+
+1551482807 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\coloriage.h
+	"graphe_matrice.h"
+
+1551482905 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\utilitaires.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+

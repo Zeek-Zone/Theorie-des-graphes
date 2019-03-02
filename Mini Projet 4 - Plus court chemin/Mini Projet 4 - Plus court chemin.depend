@@ -1,0 +1,49 @@
+# depslib dependency file v1.0
+1551453236 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\bellman_ford.c
+	<limits.h>
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+
+1551453807 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\utilitaires.h
+	"graphe_matrice.h"
+
+1551127035 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\graphe_matrice.h
+
+1551453304 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\djikstra.c
+	<limits.h>
+	<stdlib.h>
+	<stdio.h>
+	"graphe_matrice.h"
+	"utilitaires.h"
+	"bellman_ford.h"
+
+1551128776 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\graphe_matrice.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+	"utilitaires.h"
+
+1551451906 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+	"bellman_ford.h"
+	"djikstra.h"
+
+1551457274 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\utilitaires.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	<limits.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+
+1551197410 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\bellman.c
+
+1551452591 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\bellman_ford.h
+	<limits.h>
+	"utilitaires.h"
+
+1551210164 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 4 - plus court chemin\djikstra.h
+

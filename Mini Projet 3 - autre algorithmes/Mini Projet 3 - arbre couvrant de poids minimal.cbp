@@ -31,6 +31,12 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="coloriage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="coloriage.h" />
+		<Unit filename="exo2.txt" />
+		<Unit filename="exo4.txt" />
 		<Unit filename="graphe_matrice.c">
 			<Option compilerVar="CC" />
 		</Unit>

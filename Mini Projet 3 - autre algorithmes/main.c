@@ -15,7 +15,7 @@ int main()
 		|	  \  |
 		2--------3
 			4	   */
-	int V = 4; // Number of vertices in graph
+	/*int V = 4; // Number of vertices in graph
 	int E = 5; // Number of edges in graph
 	Graphe* graphe = creerGraphe(V, E);
 
@@ -45,9 +45,14 @@ int main()
 	graphe->arcs[4].dest = 3;
 	graphe->arcs[4].poids = 4;
 
-	Kruskal(graphe);
+	Kruskal(graphe);*/
+
+	printf("\n EXAM \n");
+	exo2();
 
 	printf("\n");
+
+	exo4();
 
 	/* Let us create the following graph
         2   3
@@ -57,11 +62,11 @@ int main()
     |  /     \  |
     (3)-------(4)
           9         */
-
+/*
     freopen("matriceDadjacence.txt", "r", stdin);
     MatriceDAdjacence graphe1 = creerMatAdjGO();
 
-    Prim(graphe1, 1);
+    Prim(graphe1, 1);*/
 
     // Print the solution
     //primMST(graph);

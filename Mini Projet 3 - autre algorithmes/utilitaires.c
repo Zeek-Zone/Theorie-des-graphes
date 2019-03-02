@@ -51,6 +51,9 @@ void Kruskal(Graphe* graphe)
 	Arc resultat[ordre]; // les arcs de l'arbre de poids minimal
 	int rSize = 0; // iterateur de resultat[]
 	int i = 0; // iterateurs pour l'ensemble des arcs du graphe
+	/// ADAPTATION
+	resultat[rSize++] = graphe->arcs[0];
+	resultat[rSize++] = graphe->arcs[1];
 
 	// Etape 1: Trier les arcs en ordre croissant de poids
 	qsort(graphe->arcs, graphe->numLien, sizeof(Arc), comparer);
@@ -64,6 +67,10 @@ void Kruskal(Graphe* graphe)
 	{
 		pere[s] = -1;
 	}
+
+/// ADAPTATION
+	pere[4] = 0;
+	pere[7] = 6;
 
 	// nomber d'iteration est de (order - 1)
 	while (rSize < ordre - 1)
@@ -86,9 +93,11 @@ void Kruskal(Graphe* graphe)
 	}
 
 	// Affichage de resultat
+	// Affichage de resultat
+    char sommetReel[12] = {'A','B', 'C', 'D', 'E', 'F', 'G','H', 'I', 'J','K','L'};
 	printf("\nVoici les arcs (aretes) de l\'arbre de poids minimal: \n");
 	for (i = 0; i < rSize; ++i)
-		printf("%d --(%d)-- %d\n", resultat[i].src, resultat[i].poids, resultat[i].dest);
+		printf("%c --(%d)-- %c\n", sommetReel[resultat[i].src], resultat[i].poids, sommetReel[resultat[i].dest]);
 return;
 }
 
@@ -169,8 +178,32 @@ void Prim(MatriceDAdjacence graphe, int racine){
 
 
 
+void exo2(){
 
+	int V = 12; // Number of vertices in graph
+	int E = 23; // Number of edges in graph
+	Graphe* graphe = creerGraphe(V, E);
+	saisirArcs(graphe);
 
+	Kruskal(graphe);
+}
+
+void exo4(){
+    freopen("exo4.txt", "r", stdin);
+    MatriceDAdjacence graphe = creerMatAdjGNO();
+    int *degre = (int*)calloc(10, sizeof(int)); // tous à zero
+    int *colore = (int*)calloc(10, sizeof(int));  // tous à zero: non coloré
+    printf("\n ########## Debut de Coloriage ########\n");
+    Powell_Welsh(graphe, degre, colore);
+}
+
+void saisirArcs(Graphe *graphe){
+    freopen("exo2.txt", "r", stdin);
+    int i;
+    for(i = 0; i < graphe->numLien; i++){
+        scanf("%d%d%d", &graphe->arcs[i].src, &graphe->arcs[i].dest, &graphe->arcs[i].poids);
+    }
+}
 /** \brief
  *
  * \param
