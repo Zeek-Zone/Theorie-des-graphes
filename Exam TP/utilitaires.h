@@ -25,9 +25,24 @@ void afficherDistanceEtPere(int lambda[], int pi[], int n);
 
 Graphe* creerGraphe(int numSommet, int numLien);
 
+void saisirArcs(Graphe *graphe);
 
-//void mesBFS();
+void mesBFS();
 
-//void mesDFS();
+void mesDFS();
+
+// trouver l'ensemble qui contient i
+int trouver(int pere[], int i);
+
+// une fonction qui permet de faire l'union de deux ensembles
+void Union(int pere[], int x, int y);
+
+// Comparer deux arcs (aretes)
+// Utilsé dans qsort() qui trie le tableau des arcs
+int comparer(const void* a, const void* b);
+
+
+void Kruskal(Graphe* graphe);
+
 
 #endif // UTIL

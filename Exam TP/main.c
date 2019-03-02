@@ -2,11 +2,19 @@
 #include <stdlib.h>
 #include "lesExercices.h"
 
+/** \brief  Réponses pratiques de l'examen de théorie des graphe
+ *
+ * @responsable Prof. M. D. AOURAGH
+ * @date 02/03/2019
+ * @author Hassan Zekkouri
+ *
+ */
+
 void menu1();
 
 int main()
 {
-    printf("Hello world!\n");
+    printf("Bonjour!\n");
     menu1();
     int choix;
     scanf("%d", &choix);
@@ -15,7 +23,13 @@ int main()
           exo1();
           break;
     case 2:
-          //exo2();
+          exo2();
+          break;
+    case 3:
+          exo3();
+          break;
+    case 4:
+          exo4();
           break;
     default:
            printf("choix non valide!\n");

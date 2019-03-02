@@ -31,12 +31,18 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="coloriage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="coloriage.h" />
 		<Unit filename="djikstra.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="djikstra.h" />
 		<Unit filename="exo1.txt" />
+		<Unit filename="exo2.txt" />
 		<Unit filename="exo3.txt" />
+		<Unit filename="exo4.txt" />
 		<Unit filename="file.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -45,6 +51,10 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="graphe_matrice.h" />
+		<Unit filename="graphe_parcours.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graphe_parcours.h" />
 		<Unit filename="lesExercices.c">
 			<Option compilerVar="CC" />
 		</Unit>
