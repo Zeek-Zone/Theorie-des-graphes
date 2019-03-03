@@ -31,12 +31,21 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="arbre_couvrant.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="arbre_couvrant.h" />
 		<Unit filename="coloriage.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="coloriage.h" />
 		<Unit filename="exo2.txt" />
 		<Unit filename="exo4.txt" />
+		<Unit filename="fermeture_trans.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fermeture_trans.h" />
+		<Unit filename="fermeture_trans.txt" />
 		<Unit filename="graphe_matrice.c">
 			<Option compilerVar="CC" />
 		</Unit>
