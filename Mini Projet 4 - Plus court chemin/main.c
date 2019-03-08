@@ -3,70 +3,59 @@
 #include "utilitaires.h"
 #include "bellman_ford.h"
 #include "djikstra.h"
+#include "bellman.h"
+
+void menu();
 
 int main()
 {
-    printf("Hello world!\n");
-    /* Let us create the graph given in above example */
-	int V = 5; // Number of vertices in graph
-	int E = 8; // Number of edges in graph
-	Graphe* graph = creerGraphe(V, E);
+    printf("############ Bienvenu sur le Mini Projet: ##############\n");
+    printf("-----------> A la recherche de plus court chemin!\n");
 
-	// add edge 0-1 (or A-B in above figure)
-	graph->arcs[0].src = 0;
-	graph->arcs[0].dest = 1;
-	graph->arcs[0].poids = -1;
+    int choix, x0;
+    printf("Veuillez saisir le sommet source x0 :\n");
+    scanf("%d", &x0);
 
-	// add edge 0-2 (or A-C in above figure)
-	graph->arcs[1].src = 0;
-	graph->arcs[1].dest = 2;
-	graph->arcs[1].poids= 4;
+    debut:
+        menu();
+        scanf("%d", &choix);
 
-	// add edge 1-2 (or B-C in above figure)
-	graph->arcs[2].src = 1;
-	graph->arcs[2].dest = 2;
-	graph->arcs[2].poids = 3;
+        switch(choix){
+        case 1:
+            freopen("dijkstra.txt", "r", stdin);
+            MatriceDAdjacence graphe1 = creerMatAdjGO();
+            Dijkstra(graphe1, x0);
+            break;
+        case 2:
+            freopen("bellman.txt", "r", stdin);
+            graphe1 = creerMatAdjGO();
+            //int *res = triTopo(graphe1, x0);
+            //int i;
+            //for(i=0; i< graphe1.n; i++) printf("%d ", res[i]);
+            Bellman(graphe1, x0);
+            break;
+        case 3:
+            freopen("bellman_ford.txt", "r", stdin);
+            int V, E;
+            scanf("%d%d", &V, &E);
 
-	// add edge 1-3 (or B-D in above figure)
-	graph->arcs[3].src = 1;
-	graph->arcs[3].dest = 3;
-	graph->arcs[3].poids = 2;
+            Graphe *graphe = creerGraphe(V, E);
+            saisirGraphe(graphe);
 
-	// add edge 1-4 (or A-E in above figure)
-	graph->arcs[4].src = 1;
-	graph->arcs[4].dest = 4;
-	graph->arcs[4].poids = 2;
-
-	// add edge 3-2 (or D-C in above figure)
-	graph->arcs[5].src = 3;
-	graph->arcs[5].dest = 2;
-	graph->arcs[5].poids = 5;
-
-	// add edge 3-1 (or D-B in above figure)
-	graph->arcs[6].src = 3;
-	graph->arcs[6].dest = 1;
-	graph->arcs[6].poids = 1;
-
-	// add edge 4-3 (or E-D in above figure)
-	graph->arcs[7].src = 4;
-	graph->arcs[7].dest = 3;
-	graph->arcs[7].poids = -3;
-
-	BellmanFord(graph, 0);
-
-		/* Let us create the following graph
-        2   3
-    (0)--(1)--(2)
-    |    / \    |
-   6|  8/   \5  |7
-    |  /     \  |
-    (3)-------(4)
-          9         */
-
-    freopen("matriceDadjacence.txt", "r", stdin);
-    MatriceDAdjacence graphe1 = creerMatAdjGO();
-    Dijkstra(graphe1, 0);
-
+            BellmanFord(graphe, x0);
+            break;
+        default:
+            printf("Choix non valide, veuillez reconsidérer votre choix SVP!\n");
+            goto debut;
+        }
 
     return 0;
+}
+
+void menu(){
+    printf("\nChoix de l\'algorithme!\n");
+    printf("\n1. Dijkstra (poids positifs);\n");
+    printf("2. Bellman (graphe acyclique);\n");
+    printf("3. Bellman Ford (cas general);\n");
+    printf("\nVeuillez saisir votre choix!\n");
 }

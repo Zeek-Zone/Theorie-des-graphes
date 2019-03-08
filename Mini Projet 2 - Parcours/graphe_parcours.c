@@ -45,10 +45,14 @@ void parcoursLargeur(MatriceDAdjacence graphe, int racine){
     tete  = 0;
     queue = 0;
 
-    enfile(file, racine-1);
-    printf("\n%d ", racine);
-    marque[racine-1] = 1; // marqué la racine
+    enfile(file, racine);
+    //printf("\n%d ", racine); // affichage sans père
 
+    printf("\nRacine: %d \n\n", racine);
+    marque[racine] = 1; // marqué la racine
+
+    printf("S(i) \t| \t Pere\n");
+    printf("------------------------\n");
     while(tete <= queue){
         int x = defilement(file);
         int *LS = construireListeSuccesseur(graphe, x);
@@ -59,7 +63,9 @@ void parcoursLargeur(MatriceDAdjacence graphe, int racine){
                 marque[y] = marque[x] + 1;  // marqué y
                 queue++;
                 enfile(file, y);
-                printf("%d ", y+1);
+                //printf("%d ", y); // affichage sans père
+                printf("S(%d) \t| \t S(%d)\n", y, x);
+
             }
         }
         tete++;
@@ -197,6 +203,7 @@ return 1; // graphe biparti
 }
 
 
+
 /****************************** parcoursProfondeur(MatriceDAdjacence graphe, int racine) **********************************/
 
 void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
@@ -206,17 +213,23 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
     int i;
     pFile pile = creerFile(); // ici c'est un pile : ajout et suppression en tete
     int *marque = (int*)malloc(graphe.n * sizeof(int));
+    int *pere = (int*)malloc(graphe.n * sizeof(int));
 
-    for(i = 0; i < graphe.n ; i++)
+    for(i = 0; i < graphe.n ; i++){
         marque[i] = 0; //Faux: non marqué
+        pere[i] = -1;
+        }
 
-    empiler(pile, racine-1);
-    //printf("\n%d ", racine);
-    marque[racine-1] = 1;// Vrai: marqué
+    empiler(pile, racine);
+    printf("\nSommet \t\t Pere\n", racine, pere[racine]);
+    marque[racine] = 1;// Vrai: marqué
 
     while(pile->taille){ // pile non vide
+
         int x = depiler(pile);
-        printf("%d ", x+1);
+        //printf("%d ", x); // affichage sans père
+         printf("%d \t\t %d\n", x, pere[x]);
+
         int *LS = construireListeSuccesseur(graphe, x);
         int j;
             for(j = 0; j < numSuccessurs; j++){
@@ -224,6 +237,7 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
                 if(marque[y] == 0){
                     marque[y] = 1; // Vrai: marqué
                     empiler(pile, y);
+                    pere[y] = x;
                 }
             }
 
@@ -232,44 +246,59 @@ void parcoursProfondeur(MatriceDAdjacence graphe, int racine){
     printf("\nFin de parcours en profondeur (DFS)! \n");
 }
 
+
 /*************************** DFS(MatriceDAdjacence graphe) *************************************/
 
+int nombreDeSommetVisite = 0;
 
 void DFS(MatriceDAdjacence graphe, int racine){
     Sommet *tabSommet = (Sommet*)malloc((graphe.n) * sizeof(Sommet));
     int i;
+    // Initialisation
     for(i = 0 ; i < graphe.n; i++){
-        tabSommet[i].couleur = 'B';
+        tabSommet[i].couleur = 'B'; // non visité: blanc
         tabSommet[i].pere = -1;
     }
     temps = 0;
-    for(i = 0; i < graphe.n; i++){
+    // Pour tous les sommets
+    // On va faire un DFS_visit
+    printf("Source %d:   et on a ( pere(S(i)) --->S(i) ) \n", racine);
+    for(i = 0; i < graphe.n ; i++){
         if( tabSommet[i].couleur == 'B'){
-            tabSommet[i].decouverte = temps++;
-            tabSommet[i].couleur = 'G';
-            printf("S%d ", i+1);
+            tabSommet[i].decouverte = temps++; //  ordre de visite
+            tabSommet[i].couleur = 'G'; // visité : Gris
+            printf("%d\n", i);
+            nombreDeSommetVisite++;
+            // On va visité les successeurs de i
             DFS_Visite(graphe, tabSommet, i);
         }
     }
     free(tabSommet);
+    return;
 }
 
 /***************************** DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u) ***********************************/
 
 void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
     int v, j;
+
+    if(nombreDeSommetVisite == graphe.n) exit(0);
+
     int *LS = construireListeSuccesseur(graphe, u);
         for(j = 0; j < numSuccessurs; j++){
             v = LS[j];
             if(tabSommet[v].couleur == 'B'){
                 tabSommet[v].couleur = 'G'; // visité
                 tabSommet[v].pere = u;
-                tabSommet[v].decouverte = temps++;
-                printf("S%d ", v+1);
+                tabSommet[v].decouverte = temps++; // ordre de visite
+                printf("(%d --> ) %d\n", u, v);
+                nombreDeSommetVisite++;
+                // On va visité les successeurs de v
                 DFS_Visite(graphe, tabSommet, v);
             }
         }
 
-        tabSommet[u].fin = temps++;
+        tabSommet[u].fin = temps++; // ordre d'exploration
         free(LS);
+        return;
 }

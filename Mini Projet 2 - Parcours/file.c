@@ -2,6 +2,10 @@
 #include <stdlib.h>
 #include "file.h"
 
+/// LA STRUCTURE FILE EST UTILISE AUSSI COMME UNE PILE,
+/// ENFILER ET DEFILER ----> FILE
+/// EMPILER ET DEOILER ----> PILE
+
 /************** creerFile() *******************/
 
 pFile creerFile(){

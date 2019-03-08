@@ -17,6 +17,19 @@ typedef struct graphe{
 
 }Graphe;
 
+typedef struct comp{
+    int nbrSommet;
+    int *sommets;
+}Composante;
+
+
+typedef struct cfc{
+    int taille;
+    Composante *composantes;
+}CFC;
+
+CFC* creerCFC();
+Composante* creerComposante();
 Graphe* creerGraphe(int numSommet, int numLien);
 
 

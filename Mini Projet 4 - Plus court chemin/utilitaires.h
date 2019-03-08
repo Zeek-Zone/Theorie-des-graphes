@@ -19,11 +19,14 @@ typedef struct graphe{
 
 }Graphe;
 
+
 void initialisation(int *lambda, int *pi, int x0, int n);
 void relacher(int *lambda, int *pi, int i, int j, int poids);
 void afficherDistanceEtPere(int lambda[], int pi[], int n);
 
 Graphe* creerGraphe(int numSommet, int numLien);
-
+void saisirGraphe(Graphe *graphe);
 
 #endif // UTIL
+
+//  Hassan Zekkouri

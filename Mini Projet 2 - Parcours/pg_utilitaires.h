@@ -6,9 +6,15 @@
 *   @author Hassan Zekkouri
 *   le 02/02/2019
 */
+
 void mesBFS();
+
 void mesDFS();
+
 void monGrapheBipartiBFS();
+
 void monGrapheBipartiDFS();
+
 void couches();
+
 #endif // HPG_UTILS

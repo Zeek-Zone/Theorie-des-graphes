@@ -17,6 +17,14 @@ Graphe* creerGraphe(int numSommet, int numLien){
 	return graphe;
 }
 
+void saisirGraphe(Graphe *graphe){
+    int i;
+    for(i = 0; i < graphe->numLien; i++){
+        scanf("%d%d%d", &graphe->arcs[i].src, &graphe->arcs[i].dest, &graphe->arcs[i].poids);
+    }
+}
+
+
 void afficherDistanceEtPere(int lambda[], int pi[], int n)
 {
 	printf("Distances a partir de la source:\n");
@@ -44,4 +52,5 @@ void relacher(int *lambda, int *pi, int i, int j, int poids){
 
 
 
+//  Hassan Zekkouri
 

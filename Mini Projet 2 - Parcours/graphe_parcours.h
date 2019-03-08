@@ -26,12 +26,21 @@ struct sommet{
 };
 
 void parcoursLargeur(MatriceDAdjacence graphe, int r); // BFS
+
 Marque* BFS(MatriceDAdjacence graphe, int r);
+
 void parcoursProfondeur(MatriceDAdjacence, int); // DFS
+
 int grapheBipartiBFS(MatriceDAdjacence, int);
+
 int grapheBipartiDFS(MatriceDAdjacence);
+
 pFile* partitionerEnCouche(Marque *marque, int n);
+
 void afficherCouches(MatriceDAdjacence graphe);
+
 void DFS(MatriceDAdjacence graphe, int);
+
+void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u);
 
 #endif // H_GRAPHEPARCOURS

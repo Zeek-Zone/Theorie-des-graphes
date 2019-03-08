@@ -35,10 +35,13 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="bellman.h" />
+		<Unit filename="bellman.txt" />
 		<Unit filename="bellman_ford.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="bellman_ford.h" />
+		<Unit filename="bellman_ford.txt" />
+		<Unit filename="dijkstra.txt" />
 		<Unit filename="djikstra.c">
 			<Option compilerVar="CC" />
 		</Unit>

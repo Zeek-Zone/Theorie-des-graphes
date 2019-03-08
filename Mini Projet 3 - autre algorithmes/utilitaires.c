@@ -17,6 +17,25 @@ Graphe* creerGraphe(int numSommet, int numLien){
 	return graphe;
 }
 
+Composante* creerComposante(){
+    Composante *neuf = (Composante*)malloc(sizeof(Composante));
+
+    neuf->nbrSommet = 0;
+    neuf->sommets = (int*)malloc(c->sommets, sizeof(int));
+
+return neuf;
+}
+
+
+CFC* creerCFC(){
+    CFC *neuf = (CFC*)malloc(sizeof(CFC));
+
+    neuf->taille = 0;
+    neuf->elements = (Composante*)malloc(c->sommets, sizeof(Composante));
+
+return neuf;
+}
+
 void saisirArcs(Graphe *graphe){
     freopen("exo2.txt", "r", stdin);
     int i;

@@ -3,9 +3,6 @@
 #include<stdlib.h>
 #include "utilitaires.h"
 
-
-
-
 void BellmanFord(Graphe* graphe, int x0)
 {
 	int V = graphe->numSommet;
@@ -54,4 +51,6 @@ void BellmanFord(Graphe* graphe, int x0)
 	return;
 }
 
+
+//  Hassan Zekkouri
 

@@ -5,6 +5,10 @@
 Fichier header de la structure file et pile: même structure de données
 */
 
+/// LA STRUCTURE FILE EST UTILISE AUSSI COMME UNE PILE,
+/// ENFILER ET DEFILER ----> FILE
+/// EMPILER ET DEOILER ----> PILE
+
 typedef struct cellule* pCellule;
 typedef struct cellule Cellule;
 
@@ -23,14 +27,14 @@ struct file{
 
 typedef  File* pFile;
 
-// fonctions de la file
+// fonctions de gestion de la file
 pFile creerFile();
 void enfile(pFile f, int element);
 void defile(pFile f);
 int defilement(pFile f);
 void afficheFile(pFile f);
 
-// fonctions de la pile
+// fonctions de gestion de la pile
 void empiler(pFile f, int element);
 int depiler(pFile f);
 

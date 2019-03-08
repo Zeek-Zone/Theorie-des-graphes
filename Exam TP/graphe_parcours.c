@@ -139,7 +139,7 @@ void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
                 tabSommet[v].couleur = 'G'; // visité
                 tabSommet[v].pere = u;
                 tabSommet[v].decouverte = temps++; // ordre de visite
-                printf("(%d -->) %d\n", u, v);
+                printf("(%d --> ) %d\n", u, v);
                 nombreDeSommetVisite++;
                 // On va visité les successeurs de v
                 DFS_Visite(graphe, tabSommet, v);

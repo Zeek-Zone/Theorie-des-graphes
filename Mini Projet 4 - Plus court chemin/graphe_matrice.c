@@ -10,13 +10,12 @@ MatriceDAdjacence creerMatAdjGO(){
             d'un graphe orienté */
 
           MatriceDAdjacence m;
-          printf("Saisir le nombre de sommets de votre graphe: |X| = ");
+
           scanf("%d", &m.n);
 
           int i,j;
           for(i = 0; i < m.n ; i++){
                     for(j = 0; j < m.n; j++){
-                              printf("Si l\'arc  %d --> %d  existe taper son poids sinon 0: ", i+1, j+1);
                               scanf("%d", &m.matrice[i][j]);
                     }
           }
@@ -30,13 +29,12 @@ MatriceDAdjacence creerMatAdjGNO(){
             d'un graphe non orienté*/
 
           MatriceDAdjacence m;
-          printf("Saisir le nombre de sommets : |X| = ");
+
           scanf("%d", &m.n);
 
           int i,j;
           for(i = 0; i < m.n ; i++){
                     for(j = 0; j <=i ; j++){
-                              printf("Si l\'arete  %d ---- %d  existe taper son poids sinon taper 0 : ", i+1, j+1);
                               scanf("%d", &m.matrice[i][j]);
                               m.matrice[j][i] = m.matrice[i][j];
                               // Ici on stock une partie triangulaire
@@ -101,6 +99,7 @@ return;
 }
 
 /**************************** afficheMatriceAdjacence(MatriceDAdjacence m) ******************************************/
+
 void afficheMatriceAdjacence(MatriceDAdjacence m){
           /* Cette fonction affiche la matrice d'adjacence
             d'un graphe */
@@ -115,18 +114,6 @@ void afficheMatriceAdjacence(MatriceDAdjacence m){
 return;
 }
 
-/*
-* La partie de teste: pour tester ce code séparément
 
-int main(int argc, char const *argv[])
-{
-     MatriceDAdjacence mgo = creerMatAdjGO();
-     MatriceDAdjacence mgno = creerMatAdjGNO();
-     afficheMatriceAdjacence(mgo);
-     afficheArcs(mgo);
-     afficheMatriceAdjacence(mgno);
-     afficheArete(mgno);
 
-     return 0;
-}
-*/
+// Hassan Zekkouri

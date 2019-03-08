@@ -22,6 +22,7 @@ int main()
   printf("**********************************\n");
   printf("choix : ");
   scanf("%d", &choix);
+
   switch(choix){
     case 1:
           maMatriceDadjacence();

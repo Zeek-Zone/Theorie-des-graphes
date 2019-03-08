@@ -28,10 +28,11 @@ void mesBFS(){
               freopen("gOrienteMatAdj.txt", "r", stdin); // fichier test
               MatriceDAdjacence mgo = creerMatAdjGO();
               DEBUT;
-              printf("\n Test de parcoursLargeur(mgo, i);\n", i);
+              printf("\n######### Test de parcoursLargeur(mgo, i);##########\n", i);
               for(i = 1; i <= mgo.n ; i++){
-                printf("\n Parcours Pour La racine : %d", i);
+                printf("\nParcours Pour La racine : %d", i);
                 parcoursLargeur(mgo, i);
+                printf("\n-----------------------------------\n");
               }
         break;
 
@@ -41,10 +42,11 @@ void mesBFS(){
               freopen("gNonOrienteMatAdj.txt", "r", stdin);
               MatriceDAdjacence mgno = creerMatAdjGNO();
               DEBUT;
-              printf("\n Test de parcoursLargeur(mgno, i);\n", i);
+              printf("\n######### Test de parcoursLargeur(mgno, i);##########\n", i);
               for(i = 1; i <= mgno.n ; i++){
-                printf("\n Parcours Pour La racine : %d", i);
+                printf("\nParcours Pour La racine : %d", i);
                 parcoursLargeur(mgno, i);
+                printf("\n-----------------------------------\n");
               }
         break;
 
@@ -68,13 +70,14 @@ void mesDFS(){
               freopen("gOrienteMatAdj.txt", "r", stdin);
               MatriceDAdjacence mgo = creerMatAdjGO();
               DEBUT;
-              printf("\n Test de parcoursProfondeur(mgo, i);\n");
               for(i = 1; i <= mgo.n ; i++){
-                printf("\n Parcours Pour La racine : %d", i);
-                printf("\n Test de parcoursProfondeur(mgo, i);n");
+                printf("\n-------> Parcours Pour La racine : %d <---------\n", i);
+                printf("\n#1 Test de parcoursProfondeur(mgo, i);n");
                 parcoursProfondeur(mgo, i);
-                printf("\n Test de DFS(mgno);\n");
+                printf("\n-----------------------------------\n");
+                printf("\n#2 Test de DFS(mgno);\n");
                 DFS(mgo, i);
+                printf("\n<-------------------------------------------->\n", i);
               }
 
         break;
@@ -85,13 +88,13 @@ void mesDFS(){
               freopen("gNonOrienteMatAdj.txt", "r", stdin);
               MatriceDAdjacence mgno = creerMatAdjGNO();
               DEBUT;
-              printf("\n Test de parcoursProfondeur(mgno, i);\n");
               for(i = 1; i <= mgno.n ; i++){
-                printf("\n Parcours Pour La racine : %d", i);
-                printf("\n parcoursProfondeur(mgno, i);\n");
+                printf("\n-------> Parcours Pour La racine : %d <---------\n", i);
+                printf("\n#1 Test de parcoursProfondeur(mgno, i);n");
                 parcoursProfondeur(mgno, i);
-                ///printf("\n Test de DFS(mgno);\n");
-                ///DFS(mgno, i);
+                printf("\n-----------------------------------\n");
+                printf("\nTest de DFS(mgno);\n");
+                DFS(mgno, i);
               }
 
         break;
@@ -118,7 +121,7 @@ void monGrapheBipartiBFS(){
               resultat = grapheBipartiBFS(mgo, 5);
               printf("\n___________ Graphe Bibarti\? ____________\n");
               if(resultat == 1) printf("Le graphe est biparti!\n");
-              else printf("Le graphe est n\'est pas biparti!\n");
+              else printf("\nLe graphe est n\'est pas biparti!\n");
         break;
 
         case 2:
@@ -130,7 +133,7 @@ void monGrapheBipartiBFS(){
               printf("\n___________ Graphe Bibarti\? ____________\n");
               resultat = grapheBipartiBFS(mgno, 5);
               if(resultat == 1) printf("Le graphe est biparti!\n");
-              else printf("Le graphe est n\'est pas biparti!\n");
+              else printf("\nLe graphe est n\'est pas biparti!\n");
         break;
 
         default:
@@ -148,6 +151,7 @@ void couches(){
       menu1();
       scanf("%d", &choix);
       int resultat;
+
       switch(choix){
         case 1:
 
