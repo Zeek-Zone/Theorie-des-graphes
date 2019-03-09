@@ -73,7 +73,7 @@ void empiler(pFile f, int element){
 /************** defile(pFile f) *******************/
 
 void  defile(pFile f){
-    /* supprime l'element en tete (pop) */
+    /* supprime l'element en tete */
           if( f == NULL ){
                    printf("Ce file n\'existe pas. -defiler");
                    exit(-1);
@@ -93,7 +93,7 @@ void  defile(pFile f){
 /************** defilement(pFile f){ *******************/
 
 int defilement(pFile f){
-    /* supprime l'element en tete (pop) et retourne sa valeur */
+    /* supprime l'element en tete et retourne sa valeur */
 
           if( f == NULL ){
                    printf("Ce file n\'existe pas. -defiler");
@@ -115,7 +115,7 @@ return element;
 /************** depiler(pFile f) *******************/
 
 int depiler(pFile f){
-    /* supprime l'element en tete (pop) et et retourne sa valeur */
+    /* supprime l'element en tete (top) et et retourne sa valeur */
 
           if( f == NULL ){
                    printf("Ce file n\'existe pas. -defiler");
@@ -128,7 +128,7 @@ int depiler(pFile f){
           if( f->taille == 1 )
                     f->tete = f->queue = NULL;
           else
-                   f->tete = f->tete->suivant;
+                    f->tete = f->tete->suivant;
           free(cell);
           (f->taille)--;
 return element;
@@ -150,3 +150,5 @@ void afficheFile(pFile f){
           }
           printf("\n");
 }
+
+// HASSAN ZEKKOURI

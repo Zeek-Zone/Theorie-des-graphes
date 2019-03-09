@@ -15,14 +15,14 @@ int* construireListeSuccesseur(MatriceDAdjacence graphe, int x){
     d'un sommet  x */
 
     int  i ,j = 0;
+    // Detecter le nombre de successeurs
     numSuccessurs = 0;
     for(i = 0; i < graphe.n; i++)
         if(graphe.matrice[x][i] == 1){
                 numSuccessurs++;
            }
-
+    // Stockage des successeurs
     int *LS = (int*)malloc(numSuccessurs * sizeof(int));
-    // remplissage de LS
     for(i = 0; i < graphe.n; i++)
         if(graphe.matrice[x][i] == 1){
                 LS[j] = i;
@@ -34,7 +34,9 @@ return LS;
 /************************** parcoursLargeur(MatriceDAdjacence graphe, int racine)**************************************/
 
 void parcoursLargeur(MatriceDAdjacence graphe, int racine){
-
+     /* cette fonction affiche le resultat de
+     parcours en Largeur
+    */
     int tete, queue, i;
     pFile file = creerFile();
     int *marque = (int*)malloc(graphe.n * sizeof(int));
@@ -122,9 +124,11 @@ return marque;
 /************************** partitionerEnCouche(Marque *marque, int n) **************************************/
 
 pFile* partitionerEnCouche(Marque *marque, int n){
+    /* cette fonction retourne une file
+    Contenant les couches obtenues par un parcours en largeur */
+
      // marque: contient le resultat de parcours en largeur
     // couches: tableau contenant les file de sommets de chaque niveau
-
     pFile *couches = (pFile*)malloc(NIVEAU * sizeof(pFile));
     int i;
     // initialisation
@@ -133,7 +137,6 @@ pFile* partitionerEnCouche(Marque *marque, int n){
 
     for(i = 0 ; i < n; i ++){
         int niveau = marque[i].dist;
-        //printf("Niveau %d Sommet %d\n",niveau, i);
         if(niveau <= NIVEAU)
           enfile(couches[niveau], i+1);
     }
@@ -149,7 +152,7 @@ void afficherCouches(MatriceDAdjacence graphe){
     pFile* couches = partitionerEnCouche(marque, graphe.n);
     int i;
     for(i = 0; i < NIVEAU; i++){
-        if(couches[i]->taille){ // // couche (file) non vide
+        if(couches[i]->taille){ // couche (file) non vide
             printf("C(%d) : ", i);
             afficheFile(couches[i]);
             printf("\n");
@@ -166,7 +169,7 @@ int grapheBipartiBFS(MatriceDAdjacence graphe, int racine){
     pFile* couches = partitionerEnCouche(marque, graphe.n);
 
     /* S'il existe un arc entre deux éléments de même couches
-    on return 0 (non biparti) */
+    on return 0 (n'est pas biparti) */
 
     int i = 0;
     // on vérifier s'il existe des liens entre les sommets d'une couche
@@ -302,3 +305,5 @@ void DFS_Visite(MatriceDAdjacence graphe, Sommet *tabSommet, int u){
         free(LS);
         return;
 }
+
+// HASSAN ZEKKOURI

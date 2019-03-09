@@ -105,7 +105,7 @@ void mesDFS(){
 }
 
 void monGrapheBipartiBFS(){
-    /* Pour tester les fonctionalité liées aux parcours en largeur d'un graphe */
+    /* Pour tester un graphe est biparti */
   int choix;
   debut:
       menu1();
@@ -142,9 +142,6 @@ void monGrapheBipartiBFS(){
 
 }
 
-void monGrapheBipartiDFS(){
-}
-
 void couches(){
     int choix;
   debut:
@@ -178,3 +175,5 @@ void couches(){
       }
 
 }
+
+// HASSAN ZEKKOURI

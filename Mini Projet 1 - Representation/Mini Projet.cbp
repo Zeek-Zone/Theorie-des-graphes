@@ -37,6 +37,7 @@
 		<Unit filename="gOrienteMatAdj.txt" />
 		<Unit filename="gOrienteMatIncid.txt" />
 		<Unit filename="gPSetLS.txt" />
+		<Unit filename="grapheEnLiaison.txt" />
 		<Unit filename="grapheListes.txt" />
 		<Unit filename="graphe_file.C">
 			<Option compilerVar="CC" />

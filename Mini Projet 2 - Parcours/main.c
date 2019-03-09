@@ -28,7 +28,6 @@ int main()
            printf("choix non valide!\n");
   }
   return 0;
-
 }
 
 void menu(){

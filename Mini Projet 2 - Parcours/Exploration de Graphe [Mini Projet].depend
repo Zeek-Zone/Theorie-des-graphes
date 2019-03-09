@@ -79,3 +79,20 @@
 	"graphe_matrice.h"
 	"pg_utilitaires.h"
 
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 2 - parcours\pg_utilitaires.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+	"graphe_parcours.h"
+	"pg_utilitaires.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 2 - parcours\graphe_matrice.h
+
+1552171941 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 2 - parcours\graphe_parcours.h
+	"graphe_matrice.h"
+	"file.h"
+
+1552170068 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 2 - parcours\file.h
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 2 - parcours\pg_utilitaires.h
+
