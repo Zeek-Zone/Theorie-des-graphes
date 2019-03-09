@@ -1,7 +1,6 @@
-#include<stdio.h>
-#include<stdlib.h>
+
 #include "graphe_matrice.h"
-#include "utilitaires.h"
+
 
 /******************************** creerMatAdjGO() **************************************/
 

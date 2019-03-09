@@ -1,7 +1,4 @@
-#include<limits.h>
-#include<stdio.h>
-#include<stdlib.h>
-#include "utilitaires.h"
+#include "bellman_ford.h"
 
 void BellmanFord(Graphe* graphe, int x0)
 {

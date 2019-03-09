@@ -7,12 +7,21 @@
 * @project Mini-projet : Imlémentations des graphes
 */
 
+
 /****************************************************************/
+/**
+*  Arc: arc ou arête
+          extInitial : Entier
+          extTerminal : Entier
+
+*/
 typedef struct arc Arc;
 struct arc { //Arete
           int extInitial;
           int extTerminal;
 };
+
+/****************************************************************/
 /**
 *  Sommet: (Element du file)
           valeur : Entier
@@ -25,6 +34,8 @@ struct sommet {
           Arc  *arc;
           Sommet *suivant;
 };
+
+/****************************************************************/
 /**
 *  FileSucc (structure principale du file)
           nbrSucc : Entier
@@ -36,13 +47,28 @@ struct fileSuccesseur{
           Sommet *tete;
 };
 
+/****************************************************************/
 // les fonctions de manipulation
+
+/* Cette fonction cree un arc */
 Arc* creerArc(int initial, int terminal);
+
+/* Cette fonction cree un sommet element de la file */
 Sommet* creerSommet(int extInitial, int extTerminal);
+
+/* Cette fonction saisie la file */
 FileSuccesseur* saisirFile(int extInitial, int numSucc);
+
+/* Cette fonction cree une file initialement vide */
 FileSuccesseur *creerFile();
+
+/* Cette fonction enfile un élément dans la file */
 void enfiler(FileSuccesseur *file, int extInitial, int extTerminal);
+
+/* Cette fonction defile un élément de la file */
 int defiler(FileSuccesseur *file);
+
+/* Cette fonction permet d'afficher la file */
 void afficherFile(FileSuccesseur *file);
 
 #endif //H_GRAPHEFILE

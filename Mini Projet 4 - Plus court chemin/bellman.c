@@ -1,8 +1,8 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include "graphe_matrice.h"
+
 #include "bellman.h"
-#include "utilitaires.h"
+
+/***************************************************************/
+
 int* triTopo(MatriceDAdjacence graphe, int x0){
     int *sommetTrie = (int*)calloc(graphe.n , sizeof(int));
     // on numerote 1 le sommet x0
@@ -23,6 +23,8 @@ int* triTopo(MatriceDAdjacence graphe, int x0){
 return sommetTrie;
 }
 
+/***************************************************************/
+
 int sommetSansPred(MatriceDAdjacence graphe, int *sommetTrie){
     int i, j, nbrPred;
 
@@ -40,6 +42,8 @@ int sommetSansPred(MatriceDAdjacence graphe, int *sommetTrie){
     }
 return -1;
 }
+
+/***************************************************************/
 
 int sommetSuivantANumerote(MatriceDAdjacence graphe, int *sommetTrie){
     int i, j, temp;
@@ -60,6 +64,8 @@ int sommetSuivantANumerote(MatriceDAdjacence graphe, int *sommetTrie){
     }
 return -1;
 }
+
+/***************************************************************/
 
 void Bellman(MatriceDAdjacence graphe, int x0)
 {

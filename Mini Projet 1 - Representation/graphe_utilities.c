@@ -1,10 +1,10 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include "graphe_matrice.h"
-#include "graphe_utilities.h"
-#include "graphe_liste.h"
-#include "graphe_parcours.h"
 
+#include "graphe_utilities.h"
+void menu1(){
+    printf("\n>>>>>>> Saisir un type de graphe\n");
+    printf("----> 1. Graphe Oriente\n");
+    printf("----> 2. Graphe Non Oriente\n");
+}
 
 /******************************** getMatriceDAdjacence( MesListeDAdjacence *liste) ***************************************/
 
@@ -48,29 +48,6 @@ MatriceDAdjacence getMatriceDAdjacence( MesListeDAdjacence *liste){
 return m;
 }
 
-/**********************************/
-/* Teste:
-*
-
-int main(int argc, char const *argv[])
-{
-  MesListeDAdjacence *li = creerListeDAdjacence();
-  int i, val;
-  for (i = 0; i < 4; ++i)
-  {
-    printf("\ndonner sommet\n");
-    scanf("%d", &val);
-    insert(li, val);
-  }
-  afficherListeAdj(li);
-  MatriceDAdjacence m = getMatriceDAdjacence(li);
-  afficheMatriceAdjacence(m);
-  return 0;
-}
-
-*/
-
-
 
 /******************************************************/
 
@@ -83,35 +60,31 @@ void maMatriceDadjacence(){
   int choix;
 
   debut: // etiquete goto en default
+      menu1();
+      scanf("%d", &choix);
+      switch(choix){
+        case 1:
 
-  printf("\n>>>>>>> Saisir un type de graphe\n");
-  printf("----> 1. Graphe Oriente\n");
-  printf("----> 2. Graphe Non Oriente\n");
-  scanf("%d", &choix);
+              printf("\n___________ Graphe Oriente ____________\n");
+              freopen("gOrienteMatAdj.txt", "r", stdin); // fichier de test
 
-  switch(choix){
-    case 1:
+              MatriceDAdjacence mgo = creerMatAdjGO();
+              afficheMatriceAdjacence(mgo);
+              afficheArcs(mgo);
 
-          printf("\n___________ Graphe Oriente ____________\n");
-          freopen("gOrienteMatAdj.txt", "r", stdin); // fichier de test
+        break;
+        case 2:
 
-          MatriceDAdjacence mgo = creerMatAdjGO();
-          afficheMatriceAdjacence(mgo);
-          afficheArcs(mgo);
+              printf("\n___________ Graphe Non Oriente ____________\n");
+              freopen("gNonOrienteMatAdj.txt", "r", stdin);
 
-    break;
-    case 2:
-
-          printf("\n___________ Graphe Non Oriente ____________\n");
-          freopen("gNonOrienteMatAdj.txt", "r", stdin);
-
-          MatriceDAdjacence mgno = creerMatAdjGNO();
-          afficheMatriceAdjacence(mgno);
-          afficheArete(mgno);
-    break;
-    default:
-           goto debut; // refaire le choix!
-  }
+              MatriceDAdjacence mgno = creerMatAdjGNO();
+              afficheMatriceAdjacence(mgno);
+              afficheArete(mgno);
+        break;
+        default:
+               goto debut; // refaire le choix!
+      }
 
 }
 
@@ -122,35 +95,32 @@ void maMatriceDincidence(){
   int choix;
 
   debut:
+      menu1();
+      scanf("%d", &choix);
+      switch(choix){
+        case 1:
 
-  printf("\n>>>>>>> Saisir un type de graphe\n");
-  printf("----> 1. Graphe Oriente\n");
-  printf("----> 2. Graphe Non Oriente\n");
-  scanf("%d", &choix);
-  switch(choix){
-    case 1:
+              printf("\n___________ Graphe Oriente ____________\n");
+              freopen("gOrienteMatIncid.txt", "r", stdin);
 
-          printf("\n___________ Graphe Oriente ____________\n");
-          freopen("gOrienteMatIncid.txt", "r", stdin);
+              MatriceDIncidence mgo = creerMatIncidGO();
+              afficheMatriceIncidence(mgo);
+              afficheArcMatriceIncidence(mgo);
 
-          MatriceDIncidence mgo = creerMatIncidGO();
-          afficheMatriceIncidence(mgo);
-          afficheArcMatriceIncidence(mgo);
+        break;
+        case 2:
 
-    break;
-    case 2:
+              printf("\n___________ Graphe Non Oriente ____________\n");
+              freopen("gNonOrienteMatIncid.txt", "r", stdin);
 
-          printf("\n___________ Graphe Non Oriente ____________\n");
-          freopen("gNonOrienteMatIncid.txt", "r", stdin);
+              MatriceDIncidence mgno = creerMatIncidGNO();
+              afficheMatriceIncidence(mgno);
+              afficheAreteMatriceIncidence(mgno);
 
-          MatriceDIncidence mgno = creerMatIncidGNO();
-          afficheMatriceIncidence(mgno);
-          afficheAreteMatriceIncidence(mgno);
-
-    break;
-    default:
-           goto debut;
-  }
+        break;
+        default:
+               goto debut;
+      }
 }
 /************************* mesListesDadjacence() *****************************/
 
@@ -193,6 +163,15 @@ void afficherTableau(int tab[], int n){
 	printf("\n");
 }
 
+void saisirTableau(int tab[], int n){
+    /* Saisie d'un tableau tab de taille n */
+	int i;
+	for (i = 0; i < n; ++i)
+	{
+		scanf("%d", &tab[i]);
+	}
+}
+
 void mesTablesPSetLS(){
         /* Cette fonction represente le graphe avec les deux tableaux PS et LS */
 
@@ -208,10 +187,7 @@ void mesTablesPSetLS(){
       printf("Saisir les successeurs de chaque sommet en ordre croissant:\n\
       	Commencer par cels de premier sommet puis du deuxieme ...\n LS: \n");
 
-      for ( i = 0; i < m; ++i)
-      {
-      	scanf("%d", &LS[i]);
-      }
+      saisirTableau(LS, m);
 
       PS[0] = 1;
       for ( i = 1; i < n; ++i)
@@ -247,10 +223,8 @@ void monFileFSetTabAPS(){
 
       printf("\nSaisir les successeurs de chaque sommet en oredre croissant:\n\
       	Commencer par cels de premier sommet puis du deuxieme ...\n FS:\n");
-      for ( i = 0; i < m; ++i)
-      {
-      	scanf("%d", &FS[i]);
-      }
+
+      saisirTableau(FS, m);
 
       printf("\nAPS:\n");
       APS[0] = 1;
@@ -268,3 +242,42 @@ void monFileFSetTabAPS(){
       printf("\nFS: "); afficherTableau(FS, m);
 }
 
+
+Graphe* creerGraphe(int numSommet, int numLien){
+    // Cette fonction permet de representer le graphe avec ses liaison
+	Graphe *graphe = (Graphe*)malloc(sizeof(Graphe));
+	graphe->numSommet = numSommet;
+	graphe->numLien = numLien;
+
+	graphe->arcs = (Arc*)malloc(numLien * sizeof(Arc));
+
+	return graphe;
+}
+
+void saisirGraphe(Graphe *graphe){
+    // Cette fonction permet de saisir le graphe
+    freopen("grapheEnLiaison.txt", "r", stdin);
+    int i;
+    for(i = 0; i < graphe->numLien; i++){
+        scanf("%d%d%d", &graphe->arcs[i].src, &graphe->arcs[i].dest, &graphe->arcs[i].poids);
+    }
+}
+
+void afficherGraphe(Graphe *graphe){
+    // Cette fonction permet d'afficher le graphe
+    int i;
+    printf("\nVoici la liste des liaisons de votre graphe:\n");
+    for(i = 0; i < graphe->numLien; i++){
+        printf("%d ---(%d)--- %d\n", &graphe->arcs[i].src, &graphe->arcs[i].poids, &graphe->arcs[i].dest);
+    }
+}
+
+void grapheEnLiaison(){
+    // Tester le graphe "Graphe"
+    Graphe *graphe = creerGraphe();
+    printf("\nSaisir le nombre de sommet |E|: ", &graphe->numSommet);
+    printf("Saisir le nombre de liaisons |U|: ", &graphe->numLien);
+    saisirGraphe(graphe);
+    afficherGraphe(graphe);
+return;
+}

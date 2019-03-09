@@ -95,21 +95,6 @@ void afficheMatriceAdjacence(MatriceDAdjacence m){
 return;
 }
 
-/*
-* La partie de teste: pour tester ce code séparément
-
-int main(int argc, char const *argv[])
-{
-     MatriceDAdjacence mgo = creerMatAdjGO();
-     MatriceDAdjacence mgno = creerMatAdjGNO();
-     afficheMatriceAdjacence(mgo);
-     afficheArcs(mgo);
-     afficheMatriceAdjacence(mgno);
-     afficheArete(mgno);
-
-     return 0;
-}
-*/
 
 /********************************* creerMatIncidGO() *************************************/
 MatriceDIncidence creerMatIncidGO(){
@@ -171,6 +156,7 @@ void afficheAreteMatriceIncidence(MatriceDIncidence m){
 
           int i, j, s1 = 0, s2 = 0;
           printf("\nVoici la Liste des aretes :\n");
+
           // parcours colonne par colonne
           // on stocke s1 en premier
           // une s1 est stocker (!= 0) alors on stocke s2

@@ -1,9 +1,4 @@
-#include<limits.h>
-#include<stdlib.h>
-#include<stdio.h>
-#include "graphe_matrice.h"
-#include "utilitaires.h"
-#include "bellman_ford.h"
+#include "djikstra.h"
 
 int numSuccessurs;
 

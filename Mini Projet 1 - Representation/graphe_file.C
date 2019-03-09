@@ -6,9 +6,11 @@
 /********************************* initialiserFile() *********************************************************/
 
 Arc* creerArc(int initial, int terminal){
-  Arc *arc = (Arc*)malloc(sizeof(Arc));
-  arc->extInitial = initial;
-  arc->extTerminal = terminal;
+
+      Arc *arc = (Arc*)malloc(sizeof(Arc));
+      arc->extInitial = initial;
+      arc->extTerminal = terminal;
+
 return arc;
 }
 
@@ -124,15 +126,8 @@ void afficherFile(FileSuccesseur *file)
 }
 
 /*************************************/
-/* Testes :
-int main(int argc, char const *argv[])
-{
-  FileSuccesseur *file = creerFile(1, 4);
-  afficherFile(file);
-  printf("valeur defile %d\n", defiler(file));
-  afficherFile(file);
-  return 0;
-}
-*/
+
+
+// Hassan Zekkouri
 
 

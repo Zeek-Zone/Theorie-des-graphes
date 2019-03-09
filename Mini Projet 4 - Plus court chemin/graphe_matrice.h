@@ -1,6 +1,10 @@
 #ifndef H_GRAPHEM
 #define H_GRAPHEM
 
+#include<stdio.h>
+#include<stdlib.h>
+#include "utilitaires.h"
+
 /**
 *   fichier header contenant les declarations de toutes mes structures
 *   et fonctions des graphes représenté sous forme de matrice.

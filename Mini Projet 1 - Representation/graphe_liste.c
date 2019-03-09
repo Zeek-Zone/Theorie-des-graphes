@@ -6,7 +6,7 @@
 
 /**************************************** creerListe() **********************************************************/
 
-/** \brief  Cette fonction cree une liste initialement vide
+/** \brief  Cette fonction cree une liste d'adjacence initialement vide
  *
  * \return  liste: une liste d'adjacence
  *
@@ -28,7 +28,7 @@ return liste;
 }
 
 /**************************************** creerListeDAdjacence() **********************************************************/
-/** \brief  Cette fonction cree une liste initialement vide
+/** \brief  Cette fonction cree une liste de conrole initialement vide
  *
  * \return  liste: une liste de contrôle des listes d'adjacences
  *
@@ -55,7 +55,6 @@ return liste;
  */
 
 void insert(MesListeDAdjacence *liste, int valeur){
-          /* Création en insertion du nouvel élément */
 
               Liste *nouveau = creerListe();
               Liste *courant, *pred;
@@ -107,45 +106,3 @@ void afficherListeAdj(MesListeDAdjacence *liste){
               }
               printf("\n");
 }
-/****************************** supprimeListeAdj(MesListeDAdjacence *liste) *************************************************/
-/** \brief Cette fonction permet de supprimer tout
- *  les listes d'adjacences
- * \param  liste : un pointeur  sur liste de contrôle
- * \return  rien
- */
-
-void supprimeListeAdj(MesListeDAdjacence *liste){
-          if (liste == NULL)
-              {
-                  printf("Erreur -supprime");
-                  exit(EXIT_FAILURE);
-              }
-
-              if (liste->debut != NULL)
-              {
-                  Liste* aSupprimer = liste->debut;
-                  liste->debut = liste->debut->suivant;
-                  free(aSupprimer);
-                  liste->taille--;
-              }
-}
-
-/**********************************/
-/* Teste:
-*
-
-int main(int argc, char const *argv[])
-{
-  MesListeDAdjacence *li = creerListeDAdjacence();
-  int i, val;
-  for (i = 0; i < 4; ++i)
-  {
-    printf("\ndonner sommet\n");
-    scanf("%d", &val);
-    insert(li, val);
-  }
-  afficherListeAdj(li);
-  return 0;
-}
-*/
-

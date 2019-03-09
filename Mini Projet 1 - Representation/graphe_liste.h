@@ -37,12 +37,17 @@ struct mesListAdj{
           Liste* fin;
 };
 
+// Cette fonction cree une liste d'adjacence initialement vide
+Liste* creerListe();
 
-Liste* creerListe(); // liste des elements
+// Cette fonction permet d'ajouter une liste d'adjacence
 void insert(MesListeDAdjacence *liste, int valeur);
-MesListeDAdjacence* creerListeDAdjacence(); // la liste de controle
+
+// Cette fonction cree une liste de controle initialement vide
+MesListeDAdjacence* creerListeDAdjacence();
+
+// Cette fonction permet d'afficher toutes les listes d'adjacences
 void afficherListeAdj(MesListeDAdjacence *liste);
-void supprimeListeAdj(MesListeDAdjacence *liste);
 
 #endif // H_GRAPHELISTE
 

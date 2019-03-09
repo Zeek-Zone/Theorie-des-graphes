@@ -215,3 +215,51 @@
 	<stdlib.h>
 	"graphe_utilities.h"
 
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_file.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_file.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_file.h
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_liste.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_liste.h"
+	"graphe_file.c"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_liste.h
+	"graphe_file.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_file.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_file.h"
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_matrice.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_matrice.h
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_utilities.c
+	<stdlib.h>
+	<stdio.h>
+	"graphe_matrice.h"
+	"graphe_utilities.h"
+	"graphe_liste.h"
+	"graphe_parcours.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_utilities.h
+	"graphe_matrice.h"
+	"graphe_liste.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\graphe_parcours.h
+	"graphe_matrice.h"
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 1 - representation\main.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_utilities.h"
+

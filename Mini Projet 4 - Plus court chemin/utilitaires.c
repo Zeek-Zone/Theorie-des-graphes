@@ -1,9 +1,6 @@
-#include <stdio.h>
-#include <stdlib.h>
-#include <string.h>
-#include <limits.h>
+
 #include "utilitaires.h"
-#include "graphe_matrice.h"
+
 
 
 Graphe* creerGraphe(int numSommet, int numLien){

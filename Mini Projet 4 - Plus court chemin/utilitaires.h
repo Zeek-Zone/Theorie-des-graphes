@@ -2,6 +2,10 @@
 #define UTIL
 
 #include "graphe_matrice.h"
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
 
 // une structure representant l'arc
 typedef struct arc{   // arete
