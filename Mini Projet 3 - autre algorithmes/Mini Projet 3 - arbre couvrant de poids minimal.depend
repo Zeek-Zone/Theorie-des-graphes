@@ -32,3 +32,35 @@
 	"utilitaires.h"
 	"graphe_matrice.h"
 
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\coloriage.c
+	<stdlib.h>
+	<stdio.h>
+	"coloriage.h"
+	"graphe_matrice.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\coloriage.h
+	"graphe_matrice.h"
+
+1552175732 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.h
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+	"utilitaires.h"
+
+1552160668 e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\utilitaires.h
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+
+1552160668 source:e:\0. mst sidi\1. théorie de graphe\graph-theory\mini projet 3 - autre algorithmes\utilitaires.c
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+

@@ -1,4 +1,4 @@
-#include "utilitaires.h"
+#include "arbre_couvrant.h"
 
 /************** Kruskal's Algorithm *********************/
 
@@ -105,7 +105,7 @@ void trouverArcSortant(MatriceDAdjacence m, Arc *arcSortant, int *M, int DSM){
             }
 }
 
-
+// supprime le premier arc dans le tableau arcSortant
 Arc* supprimerDebut(Arc *arcSortant){
     int taille = numArcSortant;
     Arc *temp = (Arc*)malloc( (taille-1) * sizeof(Arc));
@@ -156,5 +156,5 @@ void Prim(MatriceDAdjacence graphe, int racine){
 		printf("%d --(%d)-- %d\n", resultat[i].src, resultat[i].poids, resultat[i].dest);
 }
 
-
+// Hassan Zekkouri
 

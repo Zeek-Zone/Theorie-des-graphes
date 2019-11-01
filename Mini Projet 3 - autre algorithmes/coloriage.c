@@ -1,9 +1,5 @@
-#include<stdlib.h>
-#include<stdio.h>
-#include "coloriage.h"
-#include "graphe_matrice.h"
 
-#define _MAX = 10 // nombre max de sommet
+#include "coloriage.h"
 
 // si le nombre de couleurs peut dépasser 9, il faut ajouter le reste
 const int couleurs[9] = {1, 2, 3, 4, 5, 6, 7, 8, 9}; // les couleurs
@@ -92,3 +88,4 @@ void Powell_Welsh(MatriceDAdjacence graphe, int *degre, int *colore) {
     Powell_Welsh(graphe, degre, colore);
 }
 
+// Hassan Zekkouri

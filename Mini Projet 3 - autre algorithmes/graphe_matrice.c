@@ -114,19 +114,4 @@ void afficheMatriceAdjacence(MatriceDAdjacence m){
           }
 return;
 }
-
-/*
-* La partie de teste: pour tester ce code séparément
-
-int main(int argc, char const *argv[])
-{
-     MatriceDAdjacence mgo = creerMatAdjGO();
-     MatriceDAdjacence mgno = creerMatAdjGNO();
-     afficheMatriceAdjacence(mgo);
-     afficheArcs(mgo);
-     afficheMatriceAdjacence(mgno);
-     afficheArete(mgno);
-
-     return 0;
-}dr
-*/
+ // Hassan Zekkouri
