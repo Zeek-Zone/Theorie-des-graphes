@@ -118,7 +118,7 @@ void maMatriceDadjacence(){
 /*********************** maMatriceDincidence() *******************************/
 
 void maMatriceDincidence(){
-    /* Pour tester les fonctionalité liées aux matrices d'incidences */
+    /** Pour tester les fonctionalité liées aux matrices d'incidences */
   int choix;
 
   debut:
@@ -155,7 +155,7 @@ void maMatriceDincidence(){
 /************************* mesListesDadjacence() *****************************/
 
 void mesListesDadjacence(){
-    /* Pour tester les fonctionalité liées aux listes d'adjacences */
+    /** Pour tester les fonctionalité liées aux listes d'adjacences */
   MesListeDAdjacence *li = creerListeDAdjacence();
 
   printf("##### Debut #######\n");

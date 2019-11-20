@@ -1,0 +1,62 @@
+# depslib dependency file v1.0
+1552083203 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.c
+	<stdio.h>
+	<stdlib.h>
+	"graphe_matrice.h"
+	"utilitaires.h"
+
+1551127035 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\graphe_matrice.h
+
+1552081168 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\utilitaires.h
+	<stdio.h>
+	<stdlib.h>
+	<string.h>
+
+1552088194 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\main.c
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+	"graphe_matrice.h"
+
+1551484523 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\coloriage.c
+	<stdlib.h>
+	<stdio.h>
+	"coloriage.h"
+	"graphe_matrice.h"
+
+1552081215 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\coloriage.h
+	"graphe_matrice.h"
+
+1552299301 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\utilitaires.c
+	"utilitaires.h"
+	"graphe_matrice.h"
+
+1552076603 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\arbre_couvrant.c
+	"arbre_couvrant.h"
+
+1552076576 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\arbre_couvrant.h
+	"graphe_matrice.h"
+	"utilitaires.h"
+
+1552322278 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\composantefconnexe.h
+	"graphe_matrice.h"
+	"utilitaires.h"
+	"pile.h"
+
+1552077643 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\pile.h
+	<stdio.h>
+	<stdlib.h>
+	"utilitaires.h"
+
+1552322492 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\composantefconnexe.c
+	"composanteFconnexe.h"
+
+1551551268 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\fermeture_trans.c
+	"fermeture_trans.h"
+
+1552081152 d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\fermeture_trans.h
+	"graphe_matrice.h"
+
+1552319518 source:d:\0. mst sidi\1. théorie de graphe\tp\c\graph-theory\mini projet 3 - autre algorithmes\pile.c
+	"pile.h"
+

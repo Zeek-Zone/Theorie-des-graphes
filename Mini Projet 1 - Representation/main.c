@@ -6,8 +6,8 @@ int main()
 {
   //freopen("input.txt", "r", stdin);
   /*
-  La fonction freopen permet de tester avec des fichier sans avoir
-  besoin a taper les information à chaque fois que l'on veut retester!
+      La fonction freopen permet de tester avec des fichier sans avoir
+      besoin a taper les information à chaque fois que l'on veut retester!
   */
   int choix = 0;
   printf("**********************************\n");

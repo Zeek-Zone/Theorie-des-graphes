@@ -1,0 +1,11 @@
+4
+0 3 1 6
+0 0 2 1
+0 1 0 0
+0 0 3 0
+
+
+Example de page 83:
+
+Nombre sommets
+Matrice D'adjacence

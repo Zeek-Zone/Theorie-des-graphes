@@ -11,7 +11,7 @@
 #define MAX 50 // nombre max de sommets : à adapter selon le besoin
 
 /****************************************************************/
-// Définition des structures matrices:
+/// Définition des structures matrices:
 struct matAdj{
           int  n; // nombre de sommets
           int matrice[MAX][MAX];

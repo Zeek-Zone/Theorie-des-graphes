@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="Mini Projet 3 - autre algorithmes" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/Mini Projet 3 - autre algorithmes" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/Mini Projet 3 - autre algorithmes" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="arbre_couvrant.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="arbre_couvrant.h" />
+		<Unit filename="coloriage.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="coloriage.h" />
+		<Unit filename="coloriage.txt" />
+		<Unit filename="composanteFconnexe.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="composanteFconnexe.h" />
+		<Unit filename="composanteFconnexe.txt" />
+		<Unit filename="fermeture_trans.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="fermeture_trans.h" />
+		<Unit filename="fermeture_trans.txt" />
+		<Unit filename="graphe_matrice.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="graphe_matrice.h" />
+		<Unit filename="kruskal.txt" />
+		<Unit filename="main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="matriceDadjacence.txt" />
+		<Unit filename="pile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="pile.h" />
+		<Unit filename="prim.txt" />
+		<Unit filename="utilitaires.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="utilitaires.h" />
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

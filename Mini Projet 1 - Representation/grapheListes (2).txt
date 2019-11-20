@@ -1,0 +1,34 @@
+4
+1 1
+2
+
+2 2
+3 4
+
+3 1
+4
+
+4 0
+
+***
+La partie précédente c'est pour tester
+le graphe orienté, la parties suivante c'est
+pour le non orienté
+  !!! il faut mettre la partie à tester en haut !!!
+***
+
+5
+1 2
+2 5
+
+2 4
+1 5 3 4
+
+3 2
+2 4
+
+4 3
+2 5 3
+
+5 3
+4 1 2

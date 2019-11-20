@@ -34,6 +34,7 @@ return liste;
  *
  */
 MesListeDAdjacence* creerListeDAdjacence(){
+
               MesListeDAdjacence *liste = (MesListeDAdjacence*) malloc(sizeof(*liste));
 
               if (liste == NULL)

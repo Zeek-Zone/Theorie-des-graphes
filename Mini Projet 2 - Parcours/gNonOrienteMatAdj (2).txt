@@ -1,0 +1,30 @@
+8
+
+0
+1 0
+1 1 0
+1 1 1 0
+1 0 0 0 0
+1 0 0 1 1 0
+0 1 1 0 0 0 0
+0 0 0 0 0 0 1 0
+
+7 racine pour partitioner en couches
+
+EXEMPLE PAGE 54
+ ^^^^
+
+
+EXEMPLE PAGE 66
+8
+
+0
+1 0
+0 0 0
+0 0 1 0
+0 0 1 1 0
+1 1 0 0 0 0
+0 0 0 0 1 1 0
+0 1 0 0 0 0 1 0
+
+7  racine pour partitioner en couches
